@@ -131,7 +131,7 @@ const Navbar = () => {
             </button>
           ) : (
             <Link
-              to={"/signin"}
+              to={"/login"}
               className="btn md:text-[16px] text-xs bg-gradient-to-br from-[#632ee3] to-[#9f62f2] text-white hover:opacity-90 md:mr-0 mr-4"
             >
               Login
