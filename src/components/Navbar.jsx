@@ -1,9 +1,8 @@
 import React, { use } from "react";
 import { Link, NavLink } from "react-router";
-import logo from "../assets/paw-logo.png";
-import { AuthContext } from "../provider/AuthContext";
 import { toast } from "react-toastify";
 import { ClockLoader } from "react-spinners";
+import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
   const { user, logOut, loading } = use(AuthContext);
@@ -36,11 +35,30 @@ const Navbar = () => {
           Services
         </NavLink>
       </li>
-      <li className=" mx-2">
-        <NavLink className={linkActive} to={"/profile"}>
-          My Profile
-        </NavLink>
-      </li>
+      {user && (
+        <>
+          <li className=" mx-2">
+            <NavLink className={linkActive} to={"/my-service"}>
+              My Service
+            </NavLink>
+          </li>
+          <li className=" mx-2">
+            <NavLink className={linkActive} to={"/add-service"}>
+              Add Service
+            </NavLink>
+          </li>
+          <li className=" mx-2">
+            <NavLink className={linkActive} to={"/my-booking"}>
+              My Booking
+            </NavLink>
+          </li>
+          <li className=" mx-2">
+            <NavLink className={linkActive} to={"/profile"}>
+              Profile
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
@@ -74,14 +92,18 @@ const Navbar = () => {
           </div>
           <Link to={"/"}>
             <span>
-              <img className="w-[40px] hidden md:block" src={logo} alt="logo" />
+              <img
+                className=" hidden md:block w-10"
+                src="https://i.ibb.co.com/VWGVLPFx/homelogo1.png"
+                alt="logo"
+              />
             </span>
           </Link>
           <Link
             to={"/"}
             className=" text-2xl  bg-gradient-to-br from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent font-semibold hidden md:block"
           >
-            WarmPaws
+            HomeHero
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">

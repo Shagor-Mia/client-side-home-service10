@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router";
-import logo from "../assets/paw-logo.png";
-
 const Footer = () => {
   return (
     <footer className="w-full bg-neutral text-neutral-content py-10 px-5">
@@ -9,14 +7,18 @@ const Footer = () => {
         {/* Brand + Copyright */}
         <div className="flex flex-col items-center md:items-start">
           <Link to={"/"} className="flex items-center gap-2">
-            <img className="w-[40px]" src={logo} alt="logo" />
+            <img
+              className="w-10"
+              src="https://i.ibb.co.com/Y4Wb7HvM/homelogo4.png"
+              alt="logo"
+            />
             <h2 className="text-xl font-semibold bg-gradient-to-br from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent">
-              WarmPaws
+              HomeHero
             </h2>
           </Link>
           <p className="mt-3 text-center md:text-left text-sm">
-            © {new Date().getFullYear()} WarmPaws Pet Care Centre. All rights
-            reserved.
+            © {new Date().getFullYear()} HomeHero - Local Household Service
+            Finder. All rights reserved.
           </p>
         </div>
 
@@ -29,7 +31,7 @@ const Footer = () => {
               href="mailto:support@warmpaws.com"
               className="hover:text-[#9f62f2]"
             >
-              support@warmpaws.com
+              home@heroservice.com
             </a>
           </p>
           <p>
@@ -59,12 +61,12 @@ const Footer = () => {
         <div className="flex flex-col items-center md:items-start">
           <h3 className="font-semibold text-lg mb-3 text-white">Follow Us</h3>
           <div className="flex gap-4">
-            {/* Twitter */}
+            {/* X (formerly Twitter) */}
             <a
-              href="https://twitter.com/"
+              href="https://x.com/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Twitter"
+              aria-label="X (formerly Twitter)"
               className="hover:text-[#9f62f2] transition-all"
             >
               <svg
@@ -74,7 +76,7 @@ const Footer = () => {
                 viewBox="0 0 24 24"
                 fill="currentColor"
               >
-                <path d="M24 4.557a9.83 9.83 0 01-2.828.775A4.932 4.932 0 0023.337 3c-.951.564-2.005.974-3.127 1.195A4.916 4.916 0 0016.616 3a4.92 4.92 0 00-4.92 4.92c0 .385.044.76.127 1.122C7.691 8.797 4.066 6.864 1.64 3.897a4.822 4.822 0 00-.666 2.475 4.92 4.92 0 002.188 4.096 4.903 4.903 0 01-2.228-.616v.062a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.224.085 4.936 4.936 0 004.604 3.42A9.867 9.867 0 010 19.54a13.933 13.933 0 007.548 2.212c9.142 0 14.307-7.721 13.995-14.646A9.936 9.936 0 0024 4.557z" />
+                <path d="M18.244 2H21.5l-7.68 8.773L22 22h-4.9l-5.4-6.58L6.1 22H2.5l8.22-9.4L2 2h4.9l5 6.144L18.244 2zM17.4 20h1.35L7.1 4h-1.4L17.4 20z" />
               </svg>
             </a>
 

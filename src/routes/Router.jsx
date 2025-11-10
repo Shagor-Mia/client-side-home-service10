@@ -1,20 +1,24 @@
 import { createBrowserRouter } from "react-router";
-import MainLayout from "../layouts/MainLayout";
 import HomePage from "../pages/HomePage";
 import ServicePage from "../pages/ServicePage";
-import ProfilePage from "../pages/ProfilePage";
-import SignUpPage from "../pages/SignUpPage";
-import SignInPage from "../pages/SignInPage";
-import PrivateRoute from "../provider/PrivateRoute";
-import LoadingSpinner from "../pages/LoadingSpinner";
-import ServiceDetailsPage from "../pages/ServiceDetailsPage";
+import RegisterPage from "../pages/RegisterPage";
+import LoginPage from "../pages/LoginPage";
+// import ProfilePage from "../pages/ProfilePage";
+import PrivateRoute from "../context/PrivateRoute";
+import LoadingPage from "../pages/LoadingPage";
+import MyServicePage from "../pages/MyServicePage";
+import MyBookingPage from "../pages/MyBookingPage";
+import AddServicePage from "../pages/AddServicePage";
+// import ServiceDetailsPage from "../pages/ServiceDetailsPage";
 import ErrorPage from "../pages/ErrorPage";
+import MainLayout from "../layouts/MainLayouts";
+import ProfilePage from "../pages/ProfilePage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     errorElement: <ErrorPage />,
-    hydrateFallbackElement: <LoadingSpinner />,
+    hydrateFallbackElement: <LoadingPage />,
     element: <MainLayout />,
     children: [
       {
@@ -22,16 +26,12 @@ export const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "/service",
-        element: <ServicePage />,
+        path: "/register",
+        element: <RegisterPage />,
       },
       {
-        path: "/service/:id",
-        element: (
-          <PrivateRoute>
-            <ServiceDetailsPage />
-          </PrivateRoute>
-        ),
+        path: "/login",
+        element: <LoginPage />,
       },
       {
         path: "/profile",
@@ -42,12 +42,41 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/signup",
-        element: <SignUpPage />,
+        path: "/service",
+        element: <ServicePage />,
+      },
+      // {
+      //   path: "/service/:id",
+      //   element: (
+      //     <PrivateRoute>
+      //       <ServiceDetailsPage />
+      //     </PrivateRoute>
+      //   ),
+      // },
+
+      {
+        path: "/my-service",
+        element: (
+          <PrivateRoute>
+            <MyServicePage />
+          </PrivateRoute>
+        ),
       },
       {
-        path: "/signin",
-        element: <SignInPage />,
+        path: "/add-service",
+        element: (
+          <PrivateRoute>
+            <AddServicePage />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-booking",
+        element: (
+          <PrivateRoute>
+            <MyBookingPage />
+          </PrivateRoute>
+        ),
       },
     ],
   },
