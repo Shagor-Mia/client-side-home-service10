@@ -9,7 +9,7 @@ import LoadingPage from "../pages/LoadingPage";
 import MyServicePage from "../pages/MyServicePage";
 import MyBookingPage from "../pages/MyBookingPage";
 import AddServicePage from "../pages/AddServicePage";
-// import ServiceDetailsPage from "../pages/ServiceDetailsPage";
+import ServiceDetailsPage from "../pages/ServiceDetailsPage";
 import ErrorPage from "../pages/ErrorPage";
 import MainLayout from "../layouts/MainLayouts";
 import ProfilePage from "../pages/ProfilePage";
@@ -45,14 +45,14 @@ export const router = createBrowserRouter([
         path: "/service",
         element: <ServicePage />,
       },
-      // {
-      //   path: "/service/:id",
-      //   element: (
-      //     <PrivateRoute>
-      //       <ServiceDetailsPage />
-      //     </PrivateRoute>
-      //   ),
-      // },
+      {
+        path: "/service/:id",
+        element: (
+          <PrivateRoute>
+            <ServiceDetailsPage />
+          </PrivateRoute>
+        ),
+      },
 
       {
         path: "/my-service",

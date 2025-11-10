@@ -35,23 +35,23 @@ const Navbar = () => {
           Services
         </NavLink>
       </li>
+      <li className=" mx-2">
+        <NavLink className={linkActive} to={"/my-service"}>
+          My Service
+        </NavLink>
+      </li>
+      <li className=" mx-2">
+        <NavLink className={linkActive} to={"/add-service"}>
+          Add Service
+        </NavLink>
+      </li>
+      <li className=" mx-2">
+        <NavLink className={linkActive} to={"/my-booking"}>
+          My Booking
+        </NavLink>
+      </li>
       {user && (
         <>
-          <li className=" mx-2">
-            <NavLink className={linkActive} to={"/my-service"}>
-              My Service
-            </NavLink>
-          </li>
-          <li className=" mx-2">
-            <NavLink className={linkActive} to={"/add-service"}>
-              Add Service
-            </NavLink>
-          </li>
-          <li className=" mx-2">
-            <NavLink className={linkActive} to={"/my-booking"}>
-              My Booking
-            </NavLink>
-          </li>
           <li className=" mx-2">
             <NavLink className={linkActive} to={"/profile"}>
               Profile
