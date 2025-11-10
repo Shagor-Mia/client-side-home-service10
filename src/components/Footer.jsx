@@ -28,7 +28,7 @@ const Footer = () => {
           <p>
             Email:{" "}
             <a
-              href="mailto:support@warmpaws.com"
+              href="mailto:home@heroservice.com"
               className="hover:text-[#9f62f2]"
             >
               home@heroservice.com
