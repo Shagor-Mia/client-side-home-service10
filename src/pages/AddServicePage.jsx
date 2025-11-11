@@ -23,9 +23,11 @@ const AddServicePage = () => {
       category,
       price,
       description,
+      providerName: user.displayName,
       providerEmail: user.email,
       image,
       reviews: [],
+      status: "not booked",
     };
 
     fetchAxios
