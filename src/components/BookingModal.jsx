@@ -42,13 +42,16 @@ const BookingModal = ({ user, service }) => {
         closeModal();
         e.target.reset();
       }
-    } catch {
+    } catch (err) {
+      closeModal();
       Swal.fire({
         icon: "error",
         title: "Booking Failed",
-        text: "Something went wrong while booking this service.",
+        text:
+          err.response?.data?.message ||
+          "Something went wrong while booking this service.",
       });
-      closeModal();
+
       e.target.reset();
     }
   };
