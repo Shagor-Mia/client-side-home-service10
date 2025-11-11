@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { FaStar } from "react-icons/fa6";
 import { useAxios } from "../hooks/useAxios";
-
 import LoadingPage from "../pages/LoadingPage";
+import { AuthContext } from "../context/AuthContext";
+import BookingModal from "./BookingModal";
 
 const ServiceDetails = () => {
   const { id } = useParams();
+  const { user } = useContext(AuthContext);
   console.log(id);
   const [loading, setLoading] = useState(true);
   const [service, setService] = useState(null);
   const fetchAxios = useAxios();
-  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     fetchAxios.get(`/service/${id}`).then((res) => {
@@ -21,7 +22,7 @@ const ServiceDetails = () => {
     });
   }, [id, fetchAxios, setLoading]);
 
-  if (!service) return <LoadingPage />;
+  if (loading || !service) return <LoadingPage />;
   // Extract data
   const {
     serviceName,
@@ -30,6 +31,7 @@ const ServiceDetails = () => {
     image,
     price,
     providerEmail,
+    providerName,
     reviews = [],
   } = service;
 
@@ -82,16 +84,17 @@ const ServiceDetails = () => {
                 {providerEmail}
               </span>
             </p>
+            <p>
+              Provider Name:
+              <span className="text-gray-700 font-semibold">
+                {" "}
+                {providerName ? providerName : ""}
+              </span>
+            </p>
           </div>
 
-          {/* Book Now Button */}
           <div>
-            <button
-              className="btn bg-gradient-to-br from-[#632ee3] to-[#9f62f2] text-white border-0"
-              onClick={() => setShowForm((prev) => !prev)}
-            >
-              {showForm ? "Booking" : "Book Now"}
-            </button>
+            <BookingModal user={user} service={service} />
           </div>
 
           {/* Description */}

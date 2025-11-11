@@ -34,7 +34,7 @@ const UpdateService = ({ service, onUpdated }) => {
         onUpdated(service._id, updatedService);
         setShowModal(false);
       }
-    } catch (err) {
+    } catch {
       Swal.fire({
         icon: "error",
         title: "Update Failed",
