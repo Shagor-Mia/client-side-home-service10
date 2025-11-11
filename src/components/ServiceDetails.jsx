@@ -5,6 +5,7 @@ import { useAxios } from "../hooks/useAxios";
 import LoadingPage from "../pages/LoadingPage";
 import { AuthContext } from "../context/AuthContext";
 import BookingModal from "./BookingModal";
+import ReviewModal from "./ReviewForm";
 
 const ServiceDetails = () => {
   const { id } = useParams();
@@ -135,7 +136,13 @@ const ServiceDetails = () => {
               ))}
             </div>
           ) : (
-            <p className="text-gray-500 italic">No reviews yet.</p>
+            <div>
+              <p className="text-gray-500 italic">No reviews yet.</p>
+              <ReviewModal
+                serviceId={service._id}
+                serviceName={service.serviceName}
+              />
+            </div>
           )}
         </div>
       </div>
