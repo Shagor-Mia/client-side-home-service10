@@ -32,22 +32,24 @@ const BookingModal = ({ user, service }) => {
 
     try {
       const res = await fetchAxios.post("/bookings", bookingData);
+      console.log("booked data", res.data);
       if (res.data.insertedId) {
         Swal.fire({
           icon: "success",
           title: "Booked!",
           text: `Your booking for "${serviceName}" has been confirmed.`,
-          customClass: { container: "z-[99999]" },
         });
         closeModal();
+        e.target.reset();
       }
     } catch {
       Swal.fire({
         icon: "error",
         title: "Booking Failed",
         text: "Something went wrong while booking this service.",
-        customClass: { container: "z-[99999]" },
       });
+      closeModal();
+      e.target.reset();
     }
   };
 
