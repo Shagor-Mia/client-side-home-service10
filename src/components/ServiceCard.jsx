@@ -14,7 +14,7 @@ const ServiceCard = ({ service }) => {
       : "N/A";
 
   return (
-    <div className="card bg-base-100 shadow-sm md:hover:scale-105 md:transition ease-in-out rounded-2xl overflow-hidden border border-gray-100 dark:border-gray-800">
+    <div className="card bg-base-100 shadow-sm md:hover:scale-102 md:transform md:transition-transform md:duration-300 md:ease-in-out rounded-xl overflow-hidden  dark:border-gray-800">
       {/* Image */}
       <div className="relative">
         <img

@@ -4,6 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import ServiceCard from "../components/ServiceCard";
 import FilterByPrice from "../components/FilterByPrice";
 import SearchService from "../components/SearchService";
+import LoadingPage from "../pages/LoadingPage";
 
 const ServicePage = () => {
   const { loading, setLoading } = useContext(AuthContext);
@@ -57,9 +58,7 @@ const ServicePage = () => {
       </div>
 
       {loading ? (
-        <div className="flex justify-center items-center h-64">
-          <div className="w-12 h-12 border-4 border-purple-400 border-t-transparent rounded-full animate-spin"></div>
-        </div>
+        <LoadingPage />
       ) : services.length === 0 ? (
         <div className="flex justify-center flex-col gap-5 items-center h-64">
           <h1 className="text-2xl font-semibold text-gray-500 text-center">
