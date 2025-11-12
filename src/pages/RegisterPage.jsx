@@ -74,7 +74,7 @@ const RegisterPage = () => {
     <div
       className=" -mx-4 md:-mx-8 lg:-mx-12 -my-4 md:-my-8 lg:-my-12 min-h-screen flex justify-center items-center bg-cover bg-center bg-no-repeat px-4 "
       style={{
-        backgroundImage: `url(https://i.ibb.co.com/bjxTs9hL/elc11.jpg)`,
+        backgroundImage: `url(https://i.ibb.co.com/HQxjmKT/elc11.jpg)`,
       }}
     >
       <div className="  flex justify-center min-h-screen items-center ">

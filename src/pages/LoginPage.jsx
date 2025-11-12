@@ -110,7 +110,7 @@ const LoginPage = () => {
     <div
       className=" -mx-4 md:-mx-8 lg:-mx-12 -my-4 md:-my-8 lg:-my-12 min-h-screen flex justify-center items-center bg-cover bg-center bg-no-repeat px-4 "
       style={{
-        backgroundImage: `url(https://i.ibb.co.com/1fVWmt2n/reno6.jpg)`,
+        backgroundImage: `url(https://i.ibb.co.com/HQxjmKT/elc11.jpg)`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}

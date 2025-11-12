@@ -62,7 +62,7 @@ const BookingModal = ({ user, service }) => {
     <>
       {/* --- Trigger Button --- */}
       <button
-        className="btn bg-gradient-to-br from-[#632ee3] to-[#9f62f2] text-white border-0"
+        className="btn bg-linear-to-br from-[#632ee3] to-[#9f62f2] text-white border-0"
         onClick={openModal}
       >
         Book Now
@@ -80,15 +80,6 @@ const BookingModal = ({ user, service }) => {
               transition={{ duration: 0.25, ease: "easeOut" }}
               className="modal-box relative bg-white rounded-2xl shadow-2xl"
             >
-              {/* Close Button */}
-              <button
-                type="button"
-                onClick={closeModal}
-                className="btn btn-sm btn-circle absolute right-3 top-3"
-              >
-                ✕
-              </button>
-
               <h3 className="font-bold text-2xl text-center text-purple-700 mb-4">
                 Book Service
               </h3>

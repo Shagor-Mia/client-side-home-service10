@@ -3,13 +3,17 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 import { useAxiosSecure } from "../hooks/useAxiosSecure";
 
-const ReviewModal = ({ serviceId, serviceName, onReviewAdded, setReviews }) => {
+const ReviewModal = ({ serviceId, serviceName, onReviewAdded }) => {
   const { user } = useContext(AuthContext);
   const fetchSecureAxios = useAxiosSecure();
   const modalRef = useRef(null);
 
+  // console.log(user.email);
+
   const [rating, setRating] = useState("");
   const [comment, setComment] = useState("");
+
+  const email = user.email;
 
   const openModal = () => {
     if (!user) {
@@ -31,7 +35,7 @@ const ReviewModal = ({ serviceId, serviceName, onReviewAdded, setReviews }) => {
     if (!rating || !comment) return;
 
     try {
-      const newReviewPayload = { rating, comment };
+      const newReviewPayload = { rating, comment, email };
       const res = await fetchSecureAxios.post(
         `/bookings/review/${serviceId}`,
         newReviewPayload
@@ -74,8 +78,11 @@ const ReviewModal = ({ serviceId, serviceName, onReviewAdded, setReviews }) => {
         Leave a Review
       </button>
 
-      <dialog ref={modalRef} className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box">
+      <dialog ref={modalRef} className="modal modal-middle">
+        <div
+          className="modal-box w-[95%] sm:w-[90%] md:w-[500px] max-w-full rounded-2xl p-5 md:p-6 
+                     bg-white text-gray-800 shadow-lg"
+        >
           <h3 className="font-bold text-lg text-purple-700">
             Leave a Review for <span className="text-black">{serviceName}</span>
           </h3>

@@ -66,8 +66,8 @@ const MyBookings = () => {
   };
 
   return (
-    <div className="p-6">
-      <h3 className="text-4xl font-bold mb-6 text-center text-purple-700">
+    <div className="md:p-6 p-0">
+      <h3 className="md:text-4xl text-2xl font-bold md:mb-6  mb-3 text-center text-purple-700">
         My Bookings ({bookings.length})
       </h3>
 
@@ -100,23 +100,25 @@ const MyBookings = () => {
                         </div>
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-800">
+                        <div className="font-semibold text-gray-800 md:text-sm text-xs">
                           {booking.serviceName}
                         </div>
                       </div>
                     </div>
                   </td>
-                  <td className="text-gray-700">{booking.bookingDate}</td>
-                  <td className="text-gray-700 font-semibold">
+                  <td className="text-gray-700 md:text-sm text-xs">
+                    {booking.bookingDate}
+                  </td>
+                  <td className="text-gray-700 font-semibold md:text-sm text-xs">
                     ${booking.price}
                   </td>
                   <td>
                     {booking.status === "booked" ? (
-                      <div className="badge badge-success py-2 px-3">
+                      <div className="badge badge-success md:py-2 py-3 px-3 md:text-sm text-xs">
                         Booked
                       </div>
                     ) : (
-                      <div className="badge badge-warning py-2 px-3">
+                      <div className="badge badge-warning md:py-2 py-3 px-3 md:text-sm text-xs">
                         Pending
                       </div>
                     )}
@@ -124,13 +126,13 @@ const MyBookings = () => {
                   <td>
                     <button
                       onClick={() => handleViewDetails(booking)}
-                      className="btn btn-sm bg-blue-500 hover:bg-blue-600 text-white rounded-lg"
+                      className="btn btn-sm bg-blue-500 hover:bg-blue-600 text-white rounded-lg md:text-sm text-xs"
                     >
                       Details
                     </button>
                     <button
                       onClick={() => handleDeleteBooking(booking._id)}
-                      className="btn btn-sm bg-red-500 hover:bg-red-600 text-white rounded-lg"
+                      className="btn btn-sm bg-red-500 hover:bg-red-600 text-white rounded-lg md:text-sm text-xs"
                     >
                       Cancel
                     </button>

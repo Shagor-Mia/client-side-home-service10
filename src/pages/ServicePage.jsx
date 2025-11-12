@@ -47,11 +47,11 @@ const ServicePage = () => {
   };
 
   return (
-    <section className="mx-auto py-10 flex flex-col flex-1">
-      <h2 className="md:text-5xl text-2xl font-bold text-center mb-8">
+    <section className="mx-auto flex flex-col flex-1">
+      <h2 className="md:text-5xl text-2xl font-bold text-center md:mb-8">
         Our All Best Services
       </h2>
-      <div className="flex justify-between">
+      <div className="flex md:flex-row flex-col md:gap-0 gap-5 justify-between py-10">
         <SearchService onSearch={handleSearchResults} />
 
         <FilterByPrice onFilter={handleFilter} />

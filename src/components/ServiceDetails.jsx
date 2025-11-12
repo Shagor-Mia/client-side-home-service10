@@ -35,7 +35,6 @@ const ServiceDetails = () => {
     price,
     providerEmail,
     providerName,
-    // reviews = [],
   } = service;
 
   const totalReviews = reviews.length;
@@ -53,7 +52,7 @@ const ServiceDetails = () => {
 
   return (
     <motion.div
-      className="overflow-y-auto md:overflow-y-visible h-[500px] md:h-auto pr-2 scrollbar-thin scrollbar-thumb-purple-400 scrollbar-track-transparent"
+      className="overflow-y-auto md:overflow-y-0 h-[500px] md:h-auto pr-2 scrollbar-thin scrollbar-thumb-purple-400 scrollbar-track-transparent"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
@@ -157,7 +156,8 @@ const ServiceDetails = () => {
 
           {totalReviews > 0 ? (
             <motion.div
-              className="space-y-3"
+              className="space-y-3 overflow-y-auto h-[200px] md:h-[300px] pr-2 
+                 scrollbar-thin scrollbar-thumb-purple-400 scrollbar-track-transparent"
               initial="hidden"
               animate="visible"
               variants={{

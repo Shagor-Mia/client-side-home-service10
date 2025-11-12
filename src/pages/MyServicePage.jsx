@@ -65,14 +65,14 @@ const MyServices = () => {
   };
 
   return (
-    <div className="p-6">
-      <h3 className="text-4xl font-bold mb-6 text-center text-purple-700">
+    <div className="md:p-6 p-0">
+      <h3 className="md:text-4xl text-2xl font-bold md:mb-6  mb-3 text-center text-purple-700">
         My Services ({myServices.length})
       </h3>
 
-      <div className="overflow-x-auto rounded-2xl shadow-lg bg-white border border-gray-200">
-        <table className="table w-full">
-          <thead className="bg-purple-100 text-gray-700">
+      <div className="overflow-x-auto md:rounded-2xl rounded-xl shadow-lg bg-white border border-gray-200">
+        <table className="table w-full min-w-[650px]">
+          <thead className="bg-purple-100 text-gray-700 text-sm md:text-base">
             <tr>
               <th>#</th>
               <th>Service</th>
@@ -101,29 +101,31 @@ const MyServices = () => {
                         </div>
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-800">
+                        <div className="font-semibold text-gray-800 md:text-sm text-xs">
                           {service.serviceName}
                         </div>
-                        <div className="text-sm text-gray-500 truncate max-w-[180px]">
+                        <div className="md:text-sm text-xs text-gray-500 truncate max-w-[180px]">
                           {service.description}
                         </div>
                       </div>
                     </div>
                   </td>
 
-                  <td className="text-gray-600">{service.category}</td>
-                  <td className="text-gray-700 font-semibold">
+                  <td className="text-gray-600 md:text-sm text-xs">
+                    {service.category}
+                  </td>
+                  <td className="text-gray-700 font-semibold md:text-sm text-xs">
                     ${service.price}
                   </td>
 
                   {/* Status Badge */}
                   <td>
                     {service.status === "booked" ? (
-                      <div className="badge badge-success py-2 px-3">
+                      <div className="badge badge-success md:py-2 py-3 px-3 md:text-sm text-xs">
                         Booked
                       </div>
                     ) : (
-                      <div className="badge badge-warning py-2 px-3">
+                      <div className="badge badge-warning md:py-2 py-4 md:px-3 px-2 md:text-sm text-xs">
                         Not Booked
                       </div>
                     )}
@@ -134,7 +136,7 @@ const MyServices = () => {
                   <td>
                     <button
                       onClick={() => handleDeleteService(service._id)}
-                      className="btn btn-sm bg-red-500 hover:bg-red-600 text-white rounded-lg"
+                      className="btn btn-sm bg-red-500 hover:bg-red-600 text-white  text-xs rounded-lg"
                     >
                       Delete
                     </button>

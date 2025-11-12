@@ -15,7 +15,7 @@ const ServiceHome = () => {
         setLoading(true);
 
         const res = await fetchAxios.get("/service/all");
-        console.log(res.data);
+        // console.log(res.data);
         setServices(res.data.slice(0, 6));
       } catch (err) {
         console.error("Error fetching services:", err);
