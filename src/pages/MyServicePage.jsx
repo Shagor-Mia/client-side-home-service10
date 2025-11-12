@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 import { useAxios } from "../hooks/useAxios";
-import UpdateService from "../components/updateService";
+import UpdateService from "../components/UpdateService";
 
 const MyServices = () => {
   const { user } = useContext(AuthContext);

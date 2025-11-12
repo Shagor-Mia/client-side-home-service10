@@ -1,30 +1,32 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa6";
 import { useAxios } from "../hooks/useAxios";
 import LoadingPage from "../pages/LoadingPage";
 import { AuthContext } from "../context/AuthContext";
 import BookingModal from "./BookingModal";
 import ReviewModal from "./ReviewForm";
+import ReviewCard from "./ReviewCard";
 
 const ServiceDetails = () => {
   const { id } = useParams();
   const { user } = useContext(AuthContext);
-  console.log(id);
   const [loading, setLoading] = useState(true);
   const [service, setService] = useState(null);
+  const [reviews, setReviews] = useState([]);
   const fetchAxios = useAxios();
 
   useEffect(() => {
     fetchAxios.get(`/service/${id}`).then((res) => {
-      console.log(res.data);
       setService(res.data);
+      setReviews(res.data.reviews || []);
       setLoading(false);
     });
-  }, [id, fetchAxios, setLoading]);
+  }, [id, fetchAxios]);
 
   if (loading || !service) return <LoadingPage />;
-  // Extract data
+
   const {
     serviceName,
     category,
@@ -33,10 +35,9 @@ const ServiceDetails = () => {
     price,
     providerEmail,
     providerName,
-    reviews = [],
+    // reviews = [],
   } = service;
 
-  // Calculate average rating
   const totalReviews = reviews.length;
   const averageRating =
     totalReviews > 0
@@ -45,20 +46,42 @@ const ServiceDetails = () => {
         )
       : "N/A";
 
+  //  Called when a new review is successfully submitted
+  const handleReviewAdded = (newReview) => {
+    setReviews((prev) => [newReview, ...prev]); // instantly show new review
+  };
+
   return (
-    <div className="overflow-y-auto md:overflow-y-visible h-[500px] md:h-auto pr-2 scrollbar-thin scrollbar-thumb-purple-400 scrollbar-track-transparent">
+    <motion.div
+      className="overflow-y-auto md:overflow-y-visible h-[500px] md:h-auto pr-2 scrollbar-thin scrollbar-thumb-purple-400 scrollbar-track-transparent"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
       <div className="flex md:gap-20 gap-0 flex-col md:flex-row">
-        {/* Left: Image + Info */}
-        <div className="mt-5 md:mx-0 mx-3 space-y-4">
+        {/* LEFT: Service Image and Info */}
+        <motion.div
+          className="mt-5 md:mx-0 mx-3 space-y-4"
+          initial={{ x: -50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           {/* Image */}
-          <img
-            className="md:w-[500px] rounded-2xl"
+          <motion.img
             src={image}
             alt={serviceName}
+            className="md:w-[500px] rounded-2xl shadow-md"
+            whileHover={{ scale: 1.01 }}
+            transition={{ type: "spring", stiffness: 150 }}
           />
 
           {/* Category, Price, Rating */}
-          <div className="md:flex justify-between md:w-[500px] px-2">
+          <motion.div
+            className="md:flex justify-between md:w-[500px] px-2"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
             <p>
               Category:
               <span className="text-gray-700 font-semibold"> {category}</span>
@@ -74,10 +97,15 @@ const ServiceDetails = () => {
                 ({totalReviews} review{totalReviews !== 1 ? "s" : ""})
               </span>
             </p>
-          </div>
+          </motion.div>
 
-          {/* Provider */}
-          <div className="md:flex justify-between md:w-[500px] px-2">
+          {/* Provider Info */}
+          <motion.div
+            className="md:flex justify-between md:w-[500px] px-2"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
             <p>
               Provider Email:
               <span className="text-gray-700 font-semibold">
@@ -89,64 +117,81 @@ const ServiceDetails = () => {
               Provider Name:
               <span className="text-gray-700 font-semibold">
                 {" "}
-                {providerName ? providerName : ""}
+                {providerName || ""}
               </span>
             </p>
-          </div>
+          </motion.div>
 
-          <div>
+          {/* Booking Button */}
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          >
             <BookingModal user={user} service={service} />
-          </div>
+          </motion.div>
 
           {/* Description */}
-          <div>
+          <motion.div
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
             <h3 className="text-2xl font-bold text-gray-700 mt-4">
               Description
             </h3>
             <p className="md:w-[500px] text-gray-500">{description}</p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {/* Right: Reviews Section */}
-        <div className="mt-5 md:mt-10 mx-3 md:mx-0 md:w-[500px]">
+        {/* RIGHT: Reviews Section */}
+        <motion.div
+          className="mt-5 md:mt-10 mx-3 md:mx-0 md:w-[500px]"
+          initial={{ x: 50, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           <h3 className="text-2xl font-semibold mb-3 text-gray-700">
             Customer Reviews
           </h3>
 
           {totalReviews > 0 ? (
-            <div className="space-y-3">
+            <motion.div
+              className="space-y-3"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.15 },
+                },
+              }}
+            >
               {reviews.map((rev, idx) => (
-                <div
-                  key={idx}
-                  className="border border-gray-200 dark:border-gray-700 rounded-xl p-3"
-                >
-                  <p className="text-sm text-gray-700 dark:text-gray-300 font-medium">
-                    {rev.userEmail}
-                  </p>
-                  <div className="flex items-center text-yellow-500 text-sm">
-                    {Array.from({ length: rev.rating }).map((_, i) => (
-                      <FaStar key={i} />
-                    ))}
-                  </div>
-                  <p className="text-gray-500 text-sm mt-1">{rev.comment}</p>
-                  <p className="text-xs text-gray-400 mt-1">
-                    {new Date(rev.createdAt).toLocaleDateString()}
-                  </p>
-                </div>
+                <ReviewCard key={idx} review={rev} />
               ))}
-            </div>
+            </motion.div>
           ) : (
-            <div>
-              <p className="text-gray-500 italic">No reviews yet.</p>
-              <ReviewModal
-                serviceId={service._id}
-                serviceName={service.serviceName}
-              />
-            </div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              className="text-gray-500 italic"
+            >
+              No reviews yet.
+            </motion.p>
           )}
-        </div>
+
+          {/* Always show the ReviewModal button below reviews */}
+          <ReviewModal
+            serviceId={service._id}
+            serviceName={service.serviceName}
+            onReviewAdded={handleReviewAdded}
+          />
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

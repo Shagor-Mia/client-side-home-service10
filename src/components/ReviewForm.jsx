@@ -1,10 +1,9 @@
 import React, { useRef, useState, useContext } from "react";
 import Swal from "sweetalert2";
-
 import { AuthContext } from "../context/AuthContext";
 import { useAxiosSecure } from "../hooks/useAxiosSecure";
 
-const ReviewModal = ({ serviceId, serviceName }) => {
+const ReviewModal = ({ serviceId, serviceName, onReviewAdded, setReviews }) => {
   const { user } = useContext(AuthContext);
   const fetchSecureAxios = useAxiosSecure();
   const modalRef = useRef(null);
@@ -12,7 +11,6 @@ const ReviewModal = ({ serviceId, serviceName }) => {
   const [rating, setRating] = useState("");
   const [comment, setComment] = useState("");
 
-  // Open modal
   const openModal = () => {
     if (!user) {
       Swal.fire(
@@ -22,49 +20,53 @@ const ReviewModal = ({ serviceId, serviceName }) => {
       );
       return;
     }
-    if (modalRef.current) modalRef.current.showModal();
+    modalRef.current?.showModal();
   };
 
-  // Close modal
-  const closeModal = () => {
-    if (modalRef.current) modalRef.current.close();
-  };
+  const closeModal = () => modalRef.current?.close();
 
-  // Handle submit
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const res = await fetchSecureAxios
-        .post(`/bookings/review/${serviceId}`, {
-          rating,
-          comment,
-        })
-        .then((res) => console.log(res.data))
-        .catch((err) => console.log(err));
+    if (!rating || !comment) return;
 
-      if (res.data.modifiedCount > 0 || res.data.acknowledged) {
-        closeModal(); // hide modal before showing alert
-        Swal.fire("Thank you!", "Your review has been submitted.", "success");
+    try {
+      const newReviewPayload = { rating, comment };
+      const res = await fetchSecureAxios.post(
+        `/bookings/review/${serviceId}`,
+        newReviewPayload
+      );
+      console.log("reviews", res.data);
+
+      if (res.data.success) {
+        Swal.fire({
+          icon: "success",
+          title: "Review Added",
+          text: `Thanks for reviewing "${serviceName}"!`,
+        });
+
+        closeModal();
         setRating("");
         setComment("");
-      } else {
-        Swal.fire("Error", "Failed to add your review.", "error");
+
+        // Append the review to the list instantly
+        onReviewAdded?.({
+          ...res.data.review,
+          createdAt: new Date(res.data.review.createdAt),
+        });
       }
     } catch (err) {
       closeModal();
-      Swal.fire(
-        "Error",
-        err.response?.data?.message ||
-          "Something went wrong while submitting review.",
-        "error"
-      );
+      Swal.fire({
+        icon: "error",
+        title: "Failed",
+        text: err.response?.data?.message || "Could not add review.",
+      });
     }
   };
 
   return (
     <>
-      {/* Trigger Button */}
       <button
         onClick={openModal}
         className="btn bg-gradient-to-br from-[#632ee3] to-[#9f62f2] text-white border-0 mt-5"
@@ -72,16 +74,13 @@ const ReviewModal = ({ serviceId, serviceName }) => {
         Leave a Review
       </button>
 
-      {/* Review Modal */}
       <dialog ref={modalRef} className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <h3 className="font-bold text-lg text-purple-700">
-            Leave a Review for{" "}
-            <span className="text-black">:{serviceName}</span>
+            Leave a Review for <span className="text-black">{serviceName}</span>
           </h3>
 
           <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-            {/* Rating */}
             <div>
               <label className="font-semibold text-gray-700 mb-1 block">
                 Rating (1–5)
@@ -101,7 +100,6 @@ const ReviewModal = ({ serviceId, serviceName }) => {
               </select>
             </div>
 
-            {/* Comment */}
             <div>
               <label className="font-semibold text-gray-700 mb-1 block">
                 Comment
@@ -116,7 +114,6 @@ const ReviewModal = ({ serviceId, serviceName }) => {
               ></textarea>
             </div>
 
-            {/* Buttons */}
             <div className="flex justify-end gap-2 mt-4">
               <button
                 type="submit"

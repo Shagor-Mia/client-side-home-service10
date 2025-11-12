@@ -1,24 +1,28 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Swal from "sweetalert2";
 import { useAxios } from "../hooks/useAxios";
 
 const BookingModal = ({ user, service }) => {
   const fetchAxios = useAxios();
-  const modalRef = useRef(null); //  create modal reference
+  const modalRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   if (!service || !user) return null;
   const { _id, serviceName, price } = service;
 
-  //  open modal
+  // --- Open / Close modal ---
   const openModal = () => {
-    if (modalRef.current) modalRef.current.showModal();
+    setIsOpen(true);
+    modalRef.current?.showModal();
   };
 
-  //  close modal
   const closeModal = () => {
-    if (modalRef.current) modalRef.current.close();
+    setIsOpen(false);
+    setTimeout(() => modalRef.current?.close(), 200);
   };
 
+  // --- Handle booking form submission ---
   const handleBookingSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -32,14 +36,13 @@ const BookingModal = ({ user, service }) => {
 
     try {
       const res = await fetchAxios.post("/bookings", bookingData);
-      console.log("booked data", res.data);
       if (res.data.insertedId) {
+        closeModal();
         Swal.fire({
           icon: "success",
           title: "Booked!",
           text: `Your booking for "${serviceName}" has been confirmed.`,
         });
-        closeModal();
         e.target.reset();
       }
     } catch (err) {
@@ -51,14 +54,13 @@ const BookingModal = ({ user, service }) => {
           err.response?.data?.message ||
           "Something went wrong while booking this service.",
       });
-
       e.target.reset();
     }
   };
 
   return (
     <>
-      {/*Trigger Button */}
+      {/* --- Trigger Button --- */}
       <button
         className="btn bg-gradient-to-br from-[#632ee3] to-[#9f62f2] text-white border-0"
         onClick={openModal}
@@ -66,60 +68,89 @@ const BookingModal = ({ user, service }) => {
         Book Now
       </button>
 
-      {/* Modal */}
-      <dialog ref={modalRef} className="modal modal-bottom sm:modal-middle">
-        <div className="modal-box">
-          <h3 className="font-bold text-lg">Book Service: {serviceName}</h3>
-          <form onSubmit={handleBookingSubmit} className="space-y-3 mt-4">
-            <div>
-              <label className="font-semibold text-gray-700">Your Email</label>
-              <input
-                type="email"
-                value={user.email}
-                readOnly
-                className="input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
-              />
-            </div>
-
-            <div>
-              <label className="font-semibold text-gray-700">
-                Booking Date
-              </label>
-              <input
-                type="date"
-                name="bookingDate"
-                required
-                className="input input-bordered w-full mt-1"
-              />
-            </div>
-
-            <div>
-              <label className="font-semibold text-gray-700">Price</label>
-              <input
-                type="text"
-                value={`$${price}`}
-                readOnly
-                className="input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
-              />
-            </div>
-
-            <div className="flex justify-end gap-2 mt-4">
-              <button
-                type="submit"
-                className="btn bg-purple-600 hover:bg-purple-700 text-white"
-              >
-                Confirm Booking
-              </button>
+      {/* --- Animated DaisyUI Modal --- */}
+      <dialog ref={modalRef} className="modal modal-middle ">
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              key="modal"
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="modal-box relative bg-white rounded-2xl shadow-2xl"
+            >
+              {/* Close Button */}
               <button
                 type="button"
-                className="btn bg-gray-300 hover:bg-gray-400"
                 onClick={closeModal}
+                className="btn btn-sm btn-circle absolute right-3 top-3"
               >
-                Cancel
+                ✕
               </button>
-            </div>
-          </form>
-        </div>
+
+              <h3 className="font-bold text-2xl text-center text-purple-700 mb-4">
+                Book Service
+              </h3>
+
+              <form onSubmit={handleBookingSubmit} className="space-y-3 mt-4">
+                {/* Email */}
+                <div>
+                  <label className="font-semibold text-gray-700">
+                    Your Email
+                  </label>
+                  <input
+                    type="email"
+                    value={user.email}
+                    readOnly
+                    className="input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
+                  />
+                </div>
+
+                {/* Booking Date */}
+                <div>
+                  <label className="font-semibold text-gray-700">
+                    Booking Date
+                  </label>
+                  <input
+                    type="date"
+                    name="bookingDate"
+                    required
+                    className="input input-bordered w-full mt-1"
+                  />
+                </div>
+
+                {/* Price */}
+                <div>
+                  <label className="font-semibold text-gray-700">Price</label>
+                  <input
+                    type="text"
+                    value={`$${price}`}
+                    readOnly
+                    className="input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
+                  />
+                </div>
+
+                {/* Buttons */}
+                <div className="flex justify-end gap-2 mt-4">
+                  <button
+                    type="submit"
+                    className="btn bg-purple-600 hover:bg-purple-700 text-white"
+                  >
+                    Confirm Booking
+                  </button>
+                  <button
+                    type="button"
+                    className="btn bg-gray-300 hover:bg-gray-400"
+                    onClick={closeModal}
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </dialog>
     </>
   );
