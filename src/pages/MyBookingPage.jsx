@@ -129,18 +129,20 @@ const MyBookings = () => {
                     )}
                   </td>
                   <td>
-                    <button
-                      onClick={() => handleViewDetails(booking)}
-                      className="btn btn-sm bg-blue-500 hover:bg-blue-600 text-white rounded-lg md:text-sm text-xs"
-                    >
-                      Details
-                    </button>
-                    <button
-                      onClick={() => handleDeleteBooking(booking._id)}
-                      className="btn btn-sm ml-3 bg-red-500 hover:bg-red-600 text-white rounded-lg md:text-sm text-xs"
-                    >
-                      Cancel
-                    </button>
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-0">
+                      <button
+                        onClick={() => handleViewDetails(booking)}
+                        className="btn btn-sm bg-blue-500 hover:bg-blue-600 text-white rounded-lg md:text-sm text-xs"
+                      >
+                        Details
+                      </button>
+                      <button
+                        onClick={() => handleDeleteBooking(booking._id)}
+                        className="btn btn-sm md:ml-3 bg-red-500 hover:bg-red-600 text-white rounded-lg md:text-sm text-xs"
+                      >
+                        Cancel
+                      </button>
+                    </div>
                   </td>
                 </tr>
               ))

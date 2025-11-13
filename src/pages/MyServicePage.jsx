@@ -138,16 +138,18 @@ const MyServices = () => {
                   {/* Delete,update Button */}
 
                   <td>
-                    <button
-                      onClick={() => handleDeleteService(service._id)}
-                      className="btn btn-sm bg-red-500 hover:bg-red-600 text-white text-xs rounded-lg"
-                    >
-                      Delete
-                    </button>
-                    <UpdateService
-                      service={service}
-                      onUpdated={handleServiceUpdated}
-                    />
+                    <div className="flex flex-col md:flex-row items-center gap-2 md:gap-0">
+                      <button
+                        onClick={() => handleDeleteService(service._id)}
+                        className="btn btn-sm bg-red-500 hover:bg-red-600 text-white text-xs rounded-lg"
+                      >
+                        Delete
+                      </button>
+                      <UpdateService
+                        service={service}
+                        onUpdated={handleServiceUpdated}
+                      />
+                    </div>
                   </td>
                 </tr>
               ))

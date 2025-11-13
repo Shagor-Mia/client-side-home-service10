@@ -71,7 +71,7 @@ const Navbar = () => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="max-w-6xl mx-auto flex justify-between items-center py-3 px-0">
+      <div className="max-w-7xl w-full mx-auto flex justify-between items-center py-3 px-4 md:px-8 lg:px-12">
         {/* Left Section */}
         <motion.div
           className="flex justify-center items-center"
@@ -80,7 +80,11 @@ const Navbar = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           <div className="dropdown">
-            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost lg:hidden md:ml-0 -ml-3"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -134,14 +138,14 @@ const Navbar = () => {
 
         {/* Right Section (Avatar + Button) */}
         <motion.div
-          className="flex justify-center items-center md:gap-5 gap-2"
+          className="flex justify-center items-center md:gap-5 gap-2  -mr-3"
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
           <Theme />
           <motion.img
-            className="w-12 h-12 object-cover rounded-full"
+            className="md:w-12 md:h-12 h-10 w-10 object-cover rounded-full"
             src={
               user
                 ? user.photoURL
@@ -168,7 +172,7 @@ const Navbar = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 to={"/login"}
-                className="btn md:text-[16px] text-xs bg-linear-to-br from-[#632ee3] to-[#9f62f2] text-white hover:opacity-90 md:mr-0 mr-4"
+                className="btn md:text-[16px] text-xs bg-linear-to-br from-[#632ee3] to-[#9f62f2] text-white hover:opacity-90 "
               >
                 Login
               </Link>

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-base-100 rounded-2xl overflow-hidden">
+    <section className="py-12 md:py-16 lg:py-20 bg-base-200 rounded-2xl overflow-hidden">
       <h2 className="text-3xl md:hidden block md:text-4xl font-bold mb-4 text-gray-800 leading-tight text-center">
         Why Choose <span className="text-yellow-400">Our Deals</span>?
       </h2>

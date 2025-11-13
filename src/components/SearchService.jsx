@@ -10,7 +10,8 @@ const SearchService = ({ onSearch }) => {
     const query = search.trim();
 
     if (!query) {
-      onSearch(""); // reset search if input is cleared
+      onSearch("");
+      setSearch(""); // reset search if input is cleared
       return;
     }
 

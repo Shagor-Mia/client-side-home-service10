@@ -63,7 +63,7 @@ const UpdateService = ({ service, onUpdated }) => {
       {/* --- Trigger Button --- */}
       <button
         onClick={openModal}
-        className="btn btn-sm ml-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg"
+        className="btn btn-sm md:ml-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg"
       >
         Update
       </button>
