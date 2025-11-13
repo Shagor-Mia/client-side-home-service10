@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 import { ClockLoader } from "react-spinners";
 import { AuthContext } from "../context/AuthContext";
+import Theme from "./Theme";
 
 const Navbar = () => {
   const { user, logOut, loading } = use(AuthContext);
@@ -115,7 +116,7 @@ const Navbar = () => {
 
           <Link
             to={"/"}
-            className="text-2xl bg-gradient-to-br from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent font-semibold hidden md:block"
+            className="text-2xl bg-linear-to-br from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent font-semibold hidden md:block"
           >
             HomeHero
           </Link>
@@ -138,6 +139,7 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
+          <Theme />
           <motion.img
             className="w-12 h-12 object-cover rounded-full"
             src={
@@ -156,7 +158,7 @@ const Navbar = () => {
           ) : user ? (
             <motion.button
               onClick={handleLogout}
-              className="btn md:text-[16px] text-xs bg-gradient-to-br from-[#632ee3] to-[#9f62f2] text-white hover:opacity-90 md:mr-0 mr-4"
+              className="btn md:text-[16px] text-xs bg-linear-to-br from-[#632ee3] to-[#9f62f2] text-white hover:opacity-90 md:mr-0 mr-4"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -166,7 +168,7 @@ const Navbar = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 to={"/login"}
-                className="btn md:text-[16px] text-xs bg-gradient-to-br from-[#632ee3] to-[#9f62f2] text-white hover:opacity-90 md:mr-0 mr-4"
+                className="btn md:text-[16px] text-xs bg-linear-to-br from-[#632ee3] to-[#9f62f2] text-white hover:opacity-90 md:mr-0 mr-4"
               >
                 Login
               </Link>
