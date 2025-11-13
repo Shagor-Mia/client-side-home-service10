@@ -73,23 +73,24 @@ const ReviewModal = ({ serviceId, serviceName, onReviewAdded }) => {
     <>
       <button
         onClick={openModal}
-        className="btn bg-gradient-to-br from-[#632ee3] to-[#9f62f2] text-white border-0 mt-5"
+        className="btn bg-linear-to-br from-[#632ee3] to-[#9f62f2] text-white border-0 mt-5"
       >
         Leave a Review
       </button>
 
       <dialog ref={modalRef} className="modal modal-middle">
         <div
-          className="modal-box w-[95%] sm:w-[90%] md:w-[500px] max-w-full rounded-2xl p-5 md:p-6 
-                     bg-white text-gray-800 shadow-lg"
+          className="modal-box w-[95%] sm:w-[90%] md:w-[500px] max-w-full md:rounded-2xl rounded-xl p-5 md:p-6 
+                     bg-base-100 text-base-content shadow-lg"
         >
           <h3 className="font-bold text-lg text-purple-700">
-            Leave a Review for <span className="text-black">{serviceName}</span>
+            Leave a Review for{" "}
+            <span className="text-base-content">{serviceName}</span>
           </h3>
 
           <form onSubmit={handleSubmit} className="space-y-4 mt-4">
             <div>
-              <label className="font-semibold text-gray-700 mb-1 block">
+              <label className="font-semibold text-base-content mb-1 block">
                 Rating (1–5)
               </label>
               <select
@@ -108,7 +109,7 @@ const ReviewModal = ({ serviceId, serviceName, onReviewAdded }) => {
             </div>
 
             <div>
-              <label className="font-semibold text-gray-700 mb-1 block">
+              <label className="font-semibold text-base-content mb-1 block">
                 Comment
               </label>
               <textarea
@@ -130,7 +131,7 @@ const ReviewModal = ({ serviceId, serviceName, onReviewAdded }) => {
               </button>
               <button
                 type="button"
-                className="btn bg-gray-300 hover:bg-gray-400"
+                className="btn bg-gray-300 text-base-content hover:bg-gray-400"
                 onClick={closeModal}
               >
                 Cancel

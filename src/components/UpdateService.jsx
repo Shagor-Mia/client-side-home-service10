@@ -63,7 +63,7 @@ const UpdateService = ({ service, onUpdated }) => {
       {/* --- Trigger Button --- */}
       <button
         onClick={openModal}
-        className="btn btn-sm bg-blue-500 hover:bg-blue-600 text-white rounded-lg"
+        className="btn btn-sm ml-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg"
       >
         Update
       </button>
@@ -78,7 +78,7 @@ const UpdateService = ({ service, onUpdated }) => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="modal-box relative bg-white rounded-2xl shadow-2xl"
+              className="modal-box relative bg-base-100 text-base-content md:rounded-2xl rounded-xl shadow-2xl"
             >
               <h3 className="font-bold text-2xl text-center text-purple-700 mb-4">
                 Update Service
@@ -87,7 +87,7 @@ const UpdateService = ({ service, onUpdated }) => {
               <form onSubmit={handleUpdateService} className="space-y-3">
                 {/* Service Name */}
                 <div>
-                  <label className="font-semibold text-gray-700">
+                  <label className="font-semibold text-base-content">
                     Service Name
                   </label>
                   <input
@@ -101,7 +101,7 @@ const UpdateService = ({ service, onUpdated }) => {
 
                 {/* Category */}
                 <div>
-                  <label className="font-semibold text-gray-700">
+                  <label className="font-semibold text-base-content">
                     Category
                   </label>
                   <select
@@ -121,7 +121,7 @@ const UpdateService = ({ service, onUpdated }) => {
 
                 {/* Price */}
                 <div>
-                  <label className="font-semibold text-gray-700">
+                  <label className="font-semibold text-base-content">
                     Price ($)
                   </label>
                   <input
@@ -135,7 +135,7 @@ const UpdateService = ({ service, onUpdated }) => {
 
                 {/* Description */}
                 <div>
-                  <label className="font-semibold text-gray-700">
+                  <label className="font-semibold text-base-content">
                     Description
                   </label>
                   <textarea
@@ -148,7 +148,7 @@ const UpdateService = ({ service, onUpdated }) => {
 
                 {/* Image */}
                 <div>
-                  <label className="font-semibold text-gray-700">
+                  <label className="font-semibold text-base-content">
                     Image URL
                   </label>
                   <input

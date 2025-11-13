@@ -29,7 +29,7 @@ const ServiceCard = ({ service }) => {
 
       {/* Info */}
       <div className="p-4 space-y-3">
-        <h3 className="text-lg font-semibold text-gray-800  truncate">
+        <h3 className="text-lg font-semibold truncate">
           {service.serviceName}
         </h3>
 

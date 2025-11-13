@@ -40,7 +40,7 @@ const ProfilePage = () => {
       </motion.h1>
 
       <motion.div
-        className="items-center text-black md:py-20"
+        className="items-center text-base-content md:py-20"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.6 }}
@@ -59,8 +59,10 @@ const ProfilePage = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            <h1 className="md:text-2xl font-bold">{user?.displayName}</h1>
-            <p className="md:text-xl py-3">{user?.email}</p>
+            <h1 className="md:text-2xl text-base-content font-bold">
+              {user?.displayName}
+            </h1>
+            <p className="md:text-xl text-base-content py-3">{user?.email}</p>
             <div className="mt-5">
               <UpdateProfileModal />
 

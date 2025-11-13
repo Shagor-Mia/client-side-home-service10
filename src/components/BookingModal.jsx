@@ -78,7 +78,7 @@ const BookingModal = ({ user, service }) => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="modal-box relative bg-white rounded-2xl shadow-2xl"
+              className="modal-box relative bg-base-100 text-base-content md:rounded-2xl rounded-xl shadow-2xl"
             >
               <h3 className="font-bold text-2xl text-center text-purple-700 mb-4">
                 Book Service
@@ -87,22 +87,18 @@ const BookingModal = ({ user, service }) => {
               <form onSubmit={handleBookingSubmit} className="space-y-3 mt-4">
                 {/* Email */}
                 <div>
-                  <label className="font-semibold text-gray-700">
-                    Your Email
-                  </label>
+                  <label className="font-semibold ">Your Email</label>
                   <input
                     type="email"
                     value={user.email}
                     readOnly
-                    className="input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
+                    className="input input-bordered w-full mt-1  text-base-content cursor-not-allowed"
                   />
                 </div>
 
                 {/* Booking Date */}
                 <div>
-                  <label className="font-semibold text-gray-700">
-                    Booking Date
-                  </label>
+                  <label className="font-semibold ">Booking Date</label>
                   <input
                     type="date"
                     name="bookingDate"
@@ -113,12 +109,12 @@ const BookingModal = ({ user, service }) => {
 
                 {/* Price */}
                 <div>
-                  <label className="font-semibold text-gray-700">Price</label>
+                  <label className="font-semibold ">Price</label>
                   <input
                     type="text"
                     value={`$${price}`}
                     readOnly
-                    className="input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
+                    className="input input-bordered w-full mt-1   text-base-content cursor-not-allowed"
                   />
                 </div>
 

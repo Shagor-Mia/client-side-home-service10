@@ -3,9 +3,10 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 import { useAxios } from "../hooks/useAxios";
 import UpdateService from "../components/UpdateService";
+import LoadingPage from "./LoadingPage";
 
 const MyServices = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const [myServices, setMyServices] = useState([]);
   const fetchAxios = useAxios();
 
@@ -64,6 +65,9 @@ const MyServices = () => {
     });
   };
 
+  if (loading || !myServices) {
+    <LoadingPage />;
+  }
   return (
     <div className="md:p-6 p-0">
       <h3 className="md:text-4xl text-2xl font-bold md:mb-6  mb-3 text-center text-purple-700">
@@ -136,7 +140,7 @@ const MyServices = () => {
                   <td>
                     <button
                       onClick={() => handleDeleteService(service._id)}
-                      className="btn btn-sm bg-red-500 hover:bg-red-600 text-white  text-xs rounded-lg"
+                      className="btn btn-sm bg-red-500 hover:bg-red-600 text-white text-xs rounded-lg"
                     >
                       Delete
                     </button>

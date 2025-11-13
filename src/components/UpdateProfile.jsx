@@ -77,7 +77,7 @@ const UpdateProfileModal = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="modal-box relative bg-white rounded-2xl shadow-2xl"
+              className="modal-box relative bg-base-100 text-base-content md:rounded-2xl rounded-xl shadow-2xl"
             >
               <h3 className="font-bold text-2xl text-center text-purple-700 mb-4">
                 Update Profile
@@ -86,7 +86,7 @@ const UpdateProfileModal = () => {
               <form onSubmit={handleProfileUpdate} className="space-y-3 mt-4">
                 {/* Name */}
                 <div>
-                  <label className="font-semibold text-gray-700">
+                  <label className="font-semibold text-base-content">
                     Full Name
                   </label>
                   <input
@@ -118,7 +118,7 @@ const UpdateProfileModal = () => {
                     type="email"
                     value={user.email}
                     readOnly
-                    className="input input-bordered w-full mt-1 bg-gray-100 cursor-not-allowed"
+                    className="input input-bordered w-full mt-1  cursor-not-allowed"
                   />
                 </div>
 

@@ -52,7 +52,7 @@ const AddServicePage = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen px-2 md:px-4 md:py-12 bg-purple-50">
+    <div className="flex flex-col justify-center items-center min-h-screen px-2 md:px-4 md:py-12  ">
       {/* Back Link */}
       <Link
         to="/service"
@@ -62,17 +62,17 @@ const AddServicePage = () => {
       </Link>
 
       {/* Heading */}
-      <h1 className="md:text-5xl text-3xl font-bold text-center md:mb-10 mb-5 text-gray-800">
+      <h1 className="md:text-5xl text-3xl font-bold text-center md:mb-10 mb-5 text-base-content">
         Add a <span className="text-purple-600">Service</span>
       </h1>
 
       {/* Form */}
       <form
         onSubmit={handleCreateSubmit}
-        className="w-full max-w-lg bg-white p-4 md:p-8 md:rounded-2xl rounded-xl shadow-2xl"
+        className="w-full max-w-lg  p-4 md:p-8 md:rounded-2xl rounded-xl  bg-base-100 text-base-content shadow-lg border  border-gray-50"
       >
         {/* Service Name */}
-        <label className="label text-gray-700 font-semibold mb-1">
+        <label className="label text-base-content font-semibold mb-1">
           Service Name
         </label>
         <input
@@ -84,7 +84,7 @@ const AddServicePage = () => {
         />
 
         {/* Category */}
-        <label className="label text-gray-700 font-semibold mb-1">
+        <label className="label text-base-content font-semibold mb-1">
           Category
         </label>
         <select
@@ -102,7 +102,9 @@ const AddServicePage = () => {
         </select>
 
         {/* Price */}
-        <label className="label text-gray-700 font-semibold mb-1">Price</label>
+        <label className="label text-base-content font-semibold mb-1">
+          Price
+        </label>
         <input
           type="number"
           name="price"
@@ -112,7 +114,7 @@ const AddServicePage = () => {
         />
 
         {/* Description */}
-        <label className="label text-gray-700 font-semibold mb-1">
+        <label className="label text-base-content font-semibold mb-1">
           Description
         </label>
         <textarea
@@ -123,7 +125,7 @@ const AddServicePage = () => {
         />
 
         {/* Image URL */}
-        <label className="label text-gray-700 font-semibold mb-1">
+        <label className="label text-base-content font-semibold mb-1">
           Image URL
         </label>
         <input
@@ -137,7 +139,7 @@ const AddServicePage = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-gradient-to-r from-purple-600 to-purple-400 text-white font-bold py-3 rounded-xl hover:opacity-90 transition-all shadow-lg"
+          className="w-full bg-linear-to-r from-purple-600 to-purple-400 text-white font-bold py-3 rounded-xl hover:opacity-90 transition-all shadow-lg"
         >
           Add Service
         </button>

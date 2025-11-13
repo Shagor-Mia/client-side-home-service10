@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../context/AuthContext";
 import { useAxios } from "../hooks/useAxios";
+import LoadingPage from "./LoadingPage";
 
 const MyBookings = () => {
-  const { user } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const [bookings, setBookings] = useState([]);
   const fetchAxios = useAxios();
 
@@ -64,6 +65,10 @@ const MyBookings = () => {
       confirmButtonText: "Close",
     });
   };
+
+  if (loading || !bookings) {
+    <LoadingPage />;
+  }
 
   return (
     <div className="md:p-6 p-0">
@@ -132,7 +137,7 @@ const MyBookings = () => {
                     </button>
                     <button
                       onClick={() => handleDeleteBooking(booking._id)}
-                      className="btn btn-sm bg-red-500 hover:bg-red-600 text-white rounded-lg md:text-sm text-xs"
+                      className="btn btn-sm ml-3 bg-red-500 hover:bg-red-600 text-white rounded-lg md:text-sm text-xs"
                     >
                       Cancel
                     </button>

@@ -83,13 +83,16 @@ const ServiceDetails = () => {
           >
             <p>
               Category:
-              <span className="text-gray-700 font-semibold"> {category}</span>
+              <span className="text-base-content font-semibold">
+                {" "}
+                {category}
+              </span>
             </p>
             <p>
               Price:
-              <span className="text-gray-700 font-semibold"> ${price}</span>
+              <span className="text-base-content font-semibold"> ${price}</span>
             </p>
-            <p className="flex items-center text-gray-700 font-semibold gap-1">
+            <p className="flex items-center text-base-content font-semibold gap-1">
               <FaStar className="text-yellow-500" />
               {averageRating}{" "}
               <span className="text-sm text-gray-400">
@@ -107,14 +110,14 @@ const ServiceDetails = () => {
           >
             <p>
               Provider Email:
-              <span className="text-gray-700 font-semibold">
+              <span className="text-base-content font-semibold">
                 {" "}
                 {providerEmail}
               </span>
             </p>
             <p>
               Provider Name:
-              <span className="text-gray-700 font-semibold">
+              <span className="text-base-content font-semibold">
                 {" "}
                 {providerName || ""}
               </span>
@@ -136,10 +139,10 @@ const ServiceDetails = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <h3 className="text-2xl font-bold text-gray-700 mt-4">
+            <h3 className="text-2xl font-bold text-base-content mt-4">
               Description
             </h3>
-            <p className="md:w-[500px] text-gray-500">{description}</p>
+            <p className="md:w-[500px] text-base-content">{description}</p>
           </motion.div>
         </motion.div>
 
@@ -150,7 +153,7 @@ const ServiceDetails = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="text-2xl font-semibold mb-3 text-gray-700">
+          <h3 className="text-2xl font-semibold mb-3 text-base-content">
             Customer Reviews
           </h3>
 
@@ -177,7 +180,7 @@ const ServiceDetails = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="text-gray-500 italic"
+              className="text-base-content italic"
             >
               No reviews yet.
             </motion.p>
