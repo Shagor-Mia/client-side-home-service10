@@ -1,16 +1,46 @@
-# React + Vite
+# Responsive for all device
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Live Preview
 
-Currently, two official plugins are available:
+Check out the live version here: [Live Site](https://hero-home-service10.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Technologies and npm packages Are Used For This
 
-## React Compiler
+- React Js
+- React Router
+- React ContextAPI
+- Tailwind CSS
+- Daisy UI
+- React Toast
+- framer motion
+- firebase(google login,email password login,reset password,profile update)
+- react Icons
+- lucide-reacts
+- React Spinner
+- Axios()
+- React Spinner
+- Sweetalert2
+- Custom Hook (for data fetch using axios)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+# Key features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Firebase
+- React Router
+- Private Routing
+- ContextAPI
+- Custom Hooks
+- Framer-motion
+
+---
+
+# App Name: HomeHero – Local Household Service Finder
+
+# purpose: for our daily house work such as plumbing,carpeting,painting, electricity etc problem can be fixed locally..
+
+# Valid Commits done
+
+## Challenge Part Done
+
+-

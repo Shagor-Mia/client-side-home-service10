@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 import { auth } from "../firebase/firebase.config";
 
 const instance = axios.create({
-  baseURL: "http://localhost:4000/",
+  baseURL: "https://householdserviceserver.vercel.app",
 });
 
 export const useAxiosSecure = () => {

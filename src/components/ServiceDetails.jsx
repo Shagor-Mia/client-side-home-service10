@@ -8,6 +8,7 @@ import { AuthContext } from "../context/AuthContext";
 import BookingModal from "./BookingModal";
 import ReviewModal from "./ReviewForm";
 import ReviewCard from "./ReviewCard";
+import ErrorPage from "../pages/ErrorPage";
 
 const ServiceDetails = () => {
   const { id } = useParams();
@@ -18,14 +19,30 @@ const ServiceDetails = () => {
   const fetchAxios = useAxios();
 
   useEffect(() => {
-    fetchAxios.get(`/service/${id}`).then((res) => {
-      setService(res.data);
-      setReviews(res.data.reviews || []);
-      setLoading(false);
-    });
+    const fetchService = async () => {
+      try {
+        const res = await fetchAxios.get(`/service/${id}`);
+        if (res.data) {
+          setService(res.data);
+          setReviews(res.data.reviews || []);
+        } else {
+          setService(null); // No data found for this ID
+        }
+      } catch (err) {
+        setService(null); // API error → treat as not found
+      } finally {
+        setLoading(false); // Stop loading in all cases
+      }
+    };
+    fetchService();
   }, [id, fetchAxios]);
 
-  if (loading || !service) return <LoadingPage />;
+  if (loading) return <LoadingPage />;
+
+  if (!service) {
+    return <ErrorPage />;
+  }
+  //  If not found → show ErrorPage
 
   const {
     serviceName,
