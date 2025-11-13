@@ -1,8 +1,20 @@
+# Project Category-B12-A10_category-0003
+
 # Responsive for all device
+
+# Backend README.md done in backend repo
+
+- Check out the backend repo Github: [Live Site](https://github.com/Shagor-Mia/assignment10-server-side-home-service-)
+
+---
 
 ## 🚀 Live Preview
 
-Check out the live version here: [Live Site](https://hero-home-service10.web.app/)
+- frontend-client-link
+  Check out the live version here: [Live Site](https://hero-home-service10.web.app/)
+
+- backend-server-link
+  Check out the live version here: [Live Site](https://householdserviceserver.vercel.app)
 
 # Technologies and npm packages Are Used For This
 
