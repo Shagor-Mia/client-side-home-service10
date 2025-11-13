@@ -29,7 +29,7 @@ const ServiceCard = ({ service }) => {
 
       {/* Info */}
       <div className="p-4 space-y-3">
-        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100 truncate">
+        <h3 className="text-lg font-semibold text-gray-800  truncate">
           {service.serviceName}
         </h3>
 
@@ -57,7 +57,7 @@ const ServiceCard = ({ service }) => {
         {/* Details Button */}
         <Link
           to={`/service/${service._id}`}
-          className="btn w-full bg-gradient-to-br from-[#632ee3] to-[#9f62f2] text-white hover:opacity-90 border-0 mt-3"
+          className="btn w-full bg-linear-to-br from-[#632ee3] to-[#9f62f2] text-white hover:opacity-90 border-0 mt-3"
         >
           View Details
         </Link>

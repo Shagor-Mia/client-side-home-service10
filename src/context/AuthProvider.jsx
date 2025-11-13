@@ -36,6 +36,14 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, updatedData);
   };
 
+  const updateUserProfile = (profileName, photoUri) => {
+    setLoading(true);
+    return updateProfile(auth.currentUser, {
+      displayName: profileName,
+      photoURL: photoUri,
+    });
+  };
+
   //   login with email&password
   const loginWithEmailPass = (email, password) => {
     setLoading(true);
@@ -73,6 +81,7 @@ const AuthProvider = ({ children }) => {
     createUser,
     loginWithEmailPass,
     updateUser,
+    updateUserProfile,
     resetPassword,
     logOut,
   };
