@@ -126,7 +126,7 @@ const ServiceHome = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="md:text-[16px] text-xs btn bg-linear-to-br from-[#632ee3] to-[#6f10f3] text-white hover:opacity-90"
+                  className="md:text-[16px] text-xs btn bg-linear-to-br from-[#554086] to-[#6cc3e6] text-white hover:opacity-90"
                 >
                   Show All{" "}
                   <motion.span

@@ -26,7 +26,7 @@ const Footer = () => {
               src="https://i.ibb.co.com/Y4Wb7HvM/homelogo4.png"
               alt="logo"
             />
-            <h2 className="text-xl font-semibold bg-linear-to-br from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent">
+            <h2 className="text-xl font-semibold primary-text bg-clip-text text-transparent">
               HomeHero
             </h2>
           </Link>
@@ -48,14 +48,14 @@ const Footer = () => {
             Email:{" "}
             <a
               href="mailto:home@heroservice.com"
-              className="hover:text-[#9f62f2]"
+              className="hover:text-[#068b6a]"
             >
               home@heroservice.com
             </a>
           </p>
           <p>
             Phone:{" "}
-            <a href="tel:+8801700000000" className="hover:text-[#9f62f2]">
+            <a href="tel:+8801700000000" className="hover:text-[#068b6a]">
               +880 1700 000 000
             </a>
           </p>
@@ -70,13 +70,13 @@ const Footer = () => {
           className="flex flex-col items-center md:items-start"
         >
           <h3 className="font-semibold text-lg mb-2 text-white">Quick Links</h3>
-          <Link to="/" className="hover:text-[#9f62f2]">
+          <Link to="/" className="hover:text-[#068b6a]">
             Privacy Policy
           </Link>
-          <Link to="/" className="hover:text-[#9f62f2]">
+          <Link to="/" className="hover:text-[#068b6a]">
             Terms & Conditions
           </Link>
-          <Link to="/" className="hover:text-[#9f62f2]">
+          <Link to="/" className="hover:text-[#068b6a]">
             Contact Page
           </Link>
         </motion.div>
@@ -122,7 +122,7 @@ const Footer = () => {
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 200 }}
-                className="hover:text-[#9f62f2] transition-all"
+                className="hover:text-[#068b6a] transition-all"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

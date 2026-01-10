@@ -11,6 +11,25 @@ const Hero = () => {
     "https://i.ibb.co.com/W49GXdRb/elc3.jpg",
   ];
 
+  const titles = [
+    {
+      line1: "Modify Your Old House or,",
+      line2: "Recreate With Big Bounce?",
+    },
+    {
+      line1: "Get Any service, plumbing,electric etc",
+      line2: "Fast and Secure.",
+    },
+    {
+      line1: "Professional Renovation",
+      line2: "That Fits Your Budget",
+    },
+    {
+      line1: "Trusted Experts for",
+      line2: "Electrical & Interior Works",
+    },
+  ];
+
   const [bgIndex, setBgIndex] = useState(0);
 
   // Background auto-slide every 5s
@@ -41,21 +60,27 @@ const Hero = () => {
       {/* Overlay content */}
       <div className="absolute inset-0 md:p-10 lg:p-20 flex flex-col md:flex-row items-center justify-center z-20 lg:gap-5">
         <div className="space-y-5 text-center md:text-left">
-          <h1 className="md:text-5xl text-3xl font-bold text-white">
-            Modify Your Old House or, <br /> Recreate With Big Bounce?
-          </h1>
-          <p className="font-semibold md:text-xl text-xs text-white">
-            we will give you Best Service as Your Requirement.
-          </p>
-          <h2 className="font-semibold md:text-2xl text-xs text-white">
-            For more Details Explore Us..
-          </h2>
-          <Link
-            to="/service"
-            className="btn bg-gradient-to-br from-[#632ee3] to-[#9f62f2] text-white hover:opacity-90 border-0 pointer-events-auto"
-          >
-            Explore
-          </Link>
+          <AnimatePresence mode="wait">
+            <motion.h1
+              key={bgIndex}
+              className="md:text-5xl text-3xl text-center font-bold text-white"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              {titles[bgIndex].line1}
+              {titles[bgIndex].line2}
+            </motion.h1>
+          </AnimatePresence>
+          <div className="text-center my-5">
+            <Link
+              to="/service"
+              className="btn primary shadow-none text-white hover:opacity-90 border-0 pointer-events-auto"
+            >
+              Explore
+            </Link>
+          </div>
         </div>
       </div>
     </div>

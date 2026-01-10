@@ -22,7 +22,7 @@ const ServiceCard = ({ service }) => {
           alt={service.serviceName}
           className="w-full h-48 object-cover"
         />
-        <span className="absolute top-2 left-2 bg-purple-600 text-white text-xs px-3 py-1 rounded-full">
+        <span className="absolute top-2 left-2 primary text-white text-xs px-3 py-1 rounded-full">
           {service.category}
         </span>
       </div>
@@ -49,15 +49,13 @@ const ServiceCard = ({ service }) => {
               </span>
             </span>
           </span>
-          <span className="font-semibold text-purple-600 dark:text-purple-400">
-            ${service.price}
-          </span>
+          <span className="font-semibold primary-text ">${service.price}</span>
         </div>
 
         {/* Details Button */}
         <Link
           to={`/service/${service._id}`}
-          className="btn w-full bg-linear-to-br from-[#632ee3] to-[#9f62f2] text-white hover:opacity-90 border-0 mt-3"
+          className="btn w-full bg-linear-to-br primary text-white hover:opacity-90 border-0 mt-3"
         >
           View Details
         </Link>

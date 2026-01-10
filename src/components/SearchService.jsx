@@ -38,7 +38,7 @@ const SearchService = ({ onSearch }) => {
       />
       <button
         type="submit"
-        className="btn md:bg-gradient-to-br from-[#632ee3] to-[#9f62f2] md:text-white md:border-0"
+        className="btn md:bg-gray-700 md:text-white md:border-0"
       >
         Search
       </button>

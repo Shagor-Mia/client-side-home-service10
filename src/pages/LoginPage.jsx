@@ -9,6 +9,10 @@ const LoginPage = () => {
   const [show, setShow] = useState(false);
   const [error, setError] = useState("");
 
+  // demo
+  const DEMO_EMAIL = "sagor2@gmail.com";
+  const DEMO_PASSWORD = "Aa@123";
+
   const {
     setUser,
     setLoading,
@@ -72,6 +76,23 @@ const LoginPage = () => {
       }
     } finally {
       setLoading(false); // always stop loader
+    }
+  };
+
+  // demo login
+  const handleDemoLogin = async () => {
+    setLoading(true);
+
+    try {
+      const res = await loginWithEmailPass(DEMO_EMAIL, DEMO_PASSWORD);
+      setUser(res.user);
+      toast.success("Logged in as Demo User");
+      navigate(location.state || "/");
+    } catch (e) {
+      console.error(e);
+      toast.error("Demo login failed. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -176,7 +197,7 @@ const LoginPage = () => {
               Continue with Google
             </button>
           </fieldset>
-          <p className="font-semibold">
+          <p className="font-semibold text-center">
             Don't Have An Account ?
             <Link to={"/register"} className="text-secondary">
               {"  "}
@@ -184,6 +205,18 @@ const LoginPage = () => {
             </Link>
           </p>
         </form>
+        <div className="text-center ">
+          <p className="py-5">
+            <span className="text=primary font-bold">OR,</span> visit as demo{" "}
+            <span className="text-secondary">User</span>
+          </p>
+          <button
+            onClick={handleDemoLogin}
+            className="btn bg-purple-200 hover:bg-purple-500 hover:text-amber-50 text-secondary"
+          >
+            Demo User
+          </button>
+        </div>
       </div>
     </div>
   );

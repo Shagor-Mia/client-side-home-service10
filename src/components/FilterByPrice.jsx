@@ -33,7 +33,7 @@ const FilterByPrice = ({ onFilter }) => {
       />
       <button
         type="submit"
-        className="btn ml-4 bg-gradient-to-br from-[#632ee3] to-[#9f62f2] text-white border-0 rounded-tr-none rounded-br-none"
+        className="btn ml-4 bg-gray-700 text-white border-0 rounded-tr-none rounded-br-none"
       >
         Apply
       </button>

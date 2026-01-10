@@ -133,7 +133,7 @@ const ServicePage = () => {
             </h1>
             <button
               onClick={() => window.location.reload()}
-              className="btn bg-linear-to-br from-[#632ee3] to-[#9f62f2] text-white border-0"
+              className="btn  text-white border-0"
             >
               All Services
             </button>

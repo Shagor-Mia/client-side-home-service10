@@ -87,7 +87,6 @@ const ServiceDetails = () => {
             src={image}
             alt={serviceName}
             className="md:w-[500px] rounded-2xl shadow-md"
-            whileHover={{ scale: 1.01 }}
             transition={{ type: "spring", stiffness: 150 }}
           />
 

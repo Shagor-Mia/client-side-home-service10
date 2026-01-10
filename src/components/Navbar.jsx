@@ -21,9 +21,7 @@ const Navbar = () => {
   };
 
   const linkActive = ({ isActive }) =>
-    isActive
-      ? "relative bg-gradient-to-br from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent font-semibold after:content-[''] after:absolute after:left-0 after:-bottom-0 after:w-0 after:h-[2px] after:bg-gradient-to-br after:from-[#632ee3] after:to-[#9f62f2] after:transition-all after:duration-300 after:w-full"
-      : "";
+    isActive ? "relative primary text-gray-200" : "";
 
   const link = (
     <>
@@ -66,7 +64,7 @@ const Navbar = () => {
   );
   return (
     <motion.div
-      className="w-full sticky top-0 z-50 bg-base-100 shadow-sm mx-auto"
+      className="w-full sticky top-0 z-50 bg-gray-600 text-amber-50 shadow-sm mx-auto"
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -120,7 +118,7 @@ const Navbar = () => {
 
           <Link
             to={"/"}
-            className="text-2xl bg-linear-to-br from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent font-semibold hidden md:block"
+            className="text-2xl bg-linear-to-br primary-text bg-clip-text text-transparent font-bold hidden md:block"
           >
             HomeHero
           </Link>
@@ -158,11 +156,11 @@ const Navbar = () => {
           />
 
           {loading ? (
-            <ClockLoader height={5} color="#9f62f2" />
+            <ClockLoader height={5} color="#2ee34c" />
           ) : user ? (
             <motion.button
               onClick={handleLogout}
-              className="btn md:text-[16px] text-xs bg-linear-to-br from-[#632ee3] to-[#9f62f2] text-white hover:opacity-90 md:mr-0 mr-4"
+              className="btn md:text-[16px] text-xs hover:text-black  primary text-white border-0 hover:opacity-90 md:mr-0 mr-4 shadow-none"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -172,7 +170,7 @@ const Navbar = () => {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Link
                 to={"/login"}
-                className="btn md:text-[16px] text-xs bg-linear-to-br from-[#632ee3] to-[#9f62f2] text-white hover:opacity-90 "
+                className="btn md:text-[16px] text-xs primary text-white hover:opacity-90 shadow-none border-0 hover:text-black "
               >
                 Login
               </Link>
