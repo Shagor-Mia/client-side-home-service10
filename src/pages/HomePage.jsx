@@ -5,7 +5,7 @@ import WhyChooseUs from "../components/WhyChooseUs";
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col md:gap-20">
       <Hero />
       <ServiceHome />
       <WhyChooseUs />

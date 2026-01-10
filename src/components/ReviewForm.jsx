@@ -73,7 +73,7 @@ const ReviewModal = ({ serviceId, serviceName, onReviewAdded }) => {
     <>
       <button
         onClick={openModal}
-        className="btn bg-linear-to-br from-[#632ee3] to-[#9f62f2] text-white border-0 mt-5"
+        className="btn gray hover:bg-gray-600 hover:text-gray-100 text-white border-0 hover:scale-102 mt-5"
       >
         Leave a Review
       </button>
@@ -83,7 +83,7 @@ const ReviewModal = ({ serviceId, serviceName, onReviewAdded }) => {
           className="modal-box w-[95%] sm:w-[90%] md:w-[500px] max-w-full md:rounded-2xl rounded-xl p-5 md:p-6 
                      bg-base-100 text-base-content shadow-lg"
         >
-          <h3 className="font-bold text-lg text-purple-700">
+          <h3 className="font-bold text-lg text-base-700">
             Leave a Review for{" "}
             <span className="text-base-content">{serviceName}</span>
           </h3>
@@ -125,7 +125,7 @@ const ReviewModal = ({ serviceId, serviceName, onReviewAdded }) => {
             <div className="flex justify-end gap-2 mt-4">
               <button
                 type="submit"
-                className="btn bg-purple-600 hover:bg-purple-700 text-white"
+                className="btn gray hover:bg-gray-700 text-white"
               >
                 Submit Review
               </button>

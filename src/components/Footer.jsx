@@ -43,7 +43,9 @@ const Footer = () => {
           transition={{ delay: 0.2, duration: 0.4 }}
           className="flex flex-col items-center md:items-start"
         >
-          <h3 className="font-semibold text-lg mb-2 text-white">Contact Us</h3>
+          <h3 className="font-semibold text-lg mb-2 text-base-700">
+            Contact Us
+          </h3>
           <p>
             Email:{" "}
             <a
@@ -69,7 +71,9 @@ const Footer = () => {
           transition={{ delay: 0.3, duration: 0.4 }}
           className="flex flex-col items-center md:items-start"
         >
-          <h3 className="font-semibold text-lg mb-2 text-white">Quick Links</h3>
+          <h3 className="font-semibold text-lg mb-2 text-base-700">
+            Quick Links
+          </h3>
           <Link to="/" className="hover:text-[#068b6a]">
             Privacy Policy
           </Link>
@@ -88,7 +92,9 @@ const Footer = () => {
           transition={{ delay: 0.4, duration: 0.4 }}
           className="flex flex-col items-center md:items-start"
         >
-          <h3 className="font-semibold text-lg mb-3 text-white">Follow Us</h3>
+          <h3 className="font-semibold text-lg mb-3 text-base-700">
+            Follow Us
+          </h3>
           <div className="flex gap-4">
             {[
               {

@@ -31,7 +31,7 @@ const ProfilePage = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <motion.h1
-        className="md:text-5xl text-2xl font-bold text-center bg-linear-to-br from-[#632ee3] to-[#9f62f2] bg-clip-text text-transparent"
+        className="md:text-5xl text-2xl font-bold text-center text-base-700"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.2, duration: 0.5 }}
@@ -68,7 +68,7 @@ const ProfilePage = () => {
 
               <motion.button
                 onClick={handleLogout}
-                className="btn md:text-[16px] text-xs bg-linear-to-br from-[#632ee3] to-[#9f62f2] text-white hover:opacity-90 border-0"
+                className="btn md:text-[16px] text-xs bg-red-500 text-white hover:opacity-90 border-0"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

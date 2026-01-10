@@ -62,7 +62,7 @@ const BookingModal = ({ user, service }) => {
     <>
       {/* --- Trigger Button --- */}
       <button
-        className="btn bg-linear-to-br from-[#632ee3] to-[#9f62f2] text-white border-0"
+        className="btn gray hover:bg-gray-600 hover:text-gray-100  hover:scale-102 text-white border-0"
         onClick={openModal}
       >
         Book Now
@@ -80,7 +80,7 @@ const BookingModal = ({ user, service }) => {
               transition={{ duration: 0.25, ease: "easeOut" }}
               className="modal-box relative bg-base-100 text-base-content md:rounded-2xl rounded-xl shadow-2xl"
             >
-              <h3 className="font-bold text-2xl text-center text-purple-700 mb-4">
+              <h3 className="font-bold text-2xl text-center text-bas-700 mb-4">
                 Book Service
               </h3>
 
@@ -122,7 +122,7 @@ const BookingModal = ({ user, service }) => {
                 <div className="flex justify-end gap-2 mt-4">
                   <button
                     type="submit"
-                    className="btn bg-purple-600 hover:bg-purple-700 text-white"
+                    className="btn gray hover:bg-gray-700 text-white"
                   >
                     Confirm Booking
                   </button>

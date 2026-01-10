@@ -18,7 +18,6 @@ const MyBookings = () => {
     }
   }, [user, fetchAxios]);
 
-  // Delete booking
   const handleDeleteBooking = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -49,9 +48,7 @@ const MyBookings = () => {
     });
   };
 
-  // View booking details (could open modal or navigate)
   const handleViewDetails = (booking) => {
-    console.log(booking);
     Swal.fire({
       title: booking.serviceName,
       html: `
@@ -67,18 +64,18 @@ const MyBookings = () => {
   };
 
   if (loading || !bookings) {
-    <LoadingPage />;
+    return <LoadingPage />;
   }
 
   return (
     <div className="md:p-6 p-0">
-      <h3 className="md:text-4xl text-2xl font-bold md:mb-6  mb-3 text-center text-purple-700">
+      <h3 className="md:text-4xl text-2xl font-bold md:mb-6 mb-3 text-center text-base-content">
         My Bookings ({bookings.length})
       </h3>
 
-      <div className="overflow-x-auto rounded-2xl shadow-lg bg-white border border-gray-200">
+      <div className="overflow-x-auto rounded-2xl shadow-lg bg-base-100 border border-base-200">
         <table className="table w-full">
-          <thead className="bg-purple-100 text-gray-700">
+          <thead className="bg-purple-100 dark:bg-gray-800 text-base-content dark:text-white text-sm md:text-base">
             <tr>
               <th>#</th>
               <th>Service Name</th>
@@ -92,12 +89,13 @@ const MyBookings = () => {
           <tbody>
             {bookings.length > 0 ? (
               bookings.map((booking, index) => (
-                <tr
-                  key={booking._id}
-                  className="hover:bg-purple-50 transition-all"
-                >
-                  <td className="font-semibold">{index + 1}</td>
-                  <td className="font-semibold text-gray-800">
+                <tr key={booking._id} className=" transition-all">
+                  <td className="font-semibold text-base-content">
+                    {index + 1}
+                  </td>
+
+                  {/* Service Name */}
+                  <td className="font-semibold text-base-content">
                     <div className="flex items-center gap-3">
                       <div className="avatar">
                         <div className="mask mask-squircle h-14 w-14">
@@ -105,18 +103,21 @@ const MyBookings = () => {
                         </div>
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-800 md:text-sm text-xs">
+                        <div className="font-semibold text-base-content md:text-sm text-xs">
                           {booking.serviceName}
                         </div>
                       </div>
                     </div>
                   </td>
-                  <td className="text-gray-700 md:text-sm text-xs">
+
+                  <td className="text-base-content/70 md:text-sm text-xs">
                     {booking.bookingDate}
                   </td>
-                  <td className="text-gray-700 font-semibold md:text-sm text-xs">
+                  <td className="text-base-content font-semibold md:text-sm text-xs">
                     ${booking.price}
                   </td>
+
+                  {/* Status Badge */}
                   <td>
                     {booking.status === "booked" ? (
                       <div className="badge badge-success md:py-2 py-3 px-3 md:text-sm text-xs">
@@ -128,6 +129,8 @@ const MyBookings = () => {
                       </div>
                     )}
                   </td>
+
+                  {/* Action Buttons */}
                   <td>
                     <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-0">
                       <button
@@ -148,7 +151,10 @@ const MyBookings = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="6" className="text-center py-8 text-gray-500">
+                <td
+                  colSpan="6"
+                  className="text-center py-8 text-base-content/70"
+                >
                   You have no bookings.
                 </td>
               </tr>

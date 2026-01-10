@@ -1,8 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Swal from "sweetalert2";
 import { useAxios } from "../hooks/useAxios";
-import { useState } from "react";
 
 const UpdateService = ({ service, onUpdated }) => {
   const modalRef = useRef(null);
@@ -17,7 +16,7 @@ const UpdateService = ({ service, onUpdated }) => {
 
   const closeModal = () => {
     setIsOpen(false);
-    setTimeout(() => modalRef.current?.close(), 200); // Wait for animation to finish
+    setTimeout(() => modalRef.current?.close(), 200); // Wait for animation
   };
 
   const handleUpdateService = async (e) => {
@@ -80,34 +79,30 @@ const UpdateService = ({ service, onUpdated }) => {
               transition={{ duration: 0.25, ease: "easeOut" }}
               className="modal-box relative bg-base-100 text-base-content md:rounded-2xl rounded-xl shadow-2xl"
             >
-              <h3 className="font-bold text-2xl text-center text-purple-700 mb-4">
+              <h3 className="font-bold text-2xl text-center mb-4">
                 Update Service
               </h3>
 
               <form onSubmit={handleUpdateService} className="space-y-3">
                 {/* Service Name */}
                 <div>
-                  <label className="font-semibold text-base-content">
-                    Service Name
-                  </label>
+                  <label className="font-semibold">Service Name</label>
                   <input
                     type="text"
                     name="serviceName"
                     defaultValue={service.serviceName}
-                    className="input input-bordered w-full mt-1"
+                    className="input input-bordered w-full mt-1 bg-base-100 text-base-content border-base-300 dark:border-base-700"
                     required
                   />
                 </div>
 
                 {/* Category */}
                 <div>
-                  <label className="font-semibold text-base-content">
-                    Category
-                  </label>
+                  <label className="font-semibold">Category</label>
                   <select
                     name="category"
                     defaultValue={service.category}
-                    className="select select-bordered w-full mt-1"
+                    className="select select-bordered w-full mt-1 bg-base-100 text-base-content border-base-300 dark:border-base-700"
                     required
                   >
                     <option value="Electrician">Electrician</option>
@@ -121,41 +116,35 @@ const UpdateService = ({ service, onUpdated }) => {
 
                 {/* Price */}
                 <div>
-                  <label className="font-semibold text-base-content">
-                    Price ($)
-                  </label>
+                  <label className="font-semibold">Price ($)</label>
                   <input
                     type="number"
                     name="price"
                     defaultValue={service.price}
-                    className="input input-bordered w-full mt-1"
+                    className="input input-bordered w-full mt-1 bg-base-100 text-base-content border-base-300 dark:border-base-700"
                     required
                   />
                 </div>
 
                 {/* Description */}
                 <div>
-                  <label className="font-semibold text-base-content">
-                    Description
-                  </label>
+                  <label className="font-semibold">Description</label>
                   <textarea
                     name="description"
                     defaultValue={service.description}
-                    className="textarea textarea-bordered w-full mt-1 h-28 resize-none"
+                    className="textarea textarea-bordered w-full mt-1 h-28 resize-none bg-base-100 text-base-content border-base-300 dark:border-base-700"
                     required
                   ></textarea>
                 </div>
 
                 {/* Image */}
                 <div>
-                  <label className="font-semibold text-base-content">
-                    Image URL
-                  </label>
+                  <label className="font-semibold">Image URL</label>
                   <input
                     type="text"
                     name="image"
                     defaultValue={service.image}
-                    className="input input-bordered w-full mt-1"
+                    className="input input-bordered w-full mt-1 bg-base-100 text-base-content border-base-300 dark:border-base-700"
                     required
                   />
                 </div>
@@ -164,14 +153,14 @@ const UpdateService = ({ service, onUpdated }) => {
                 <div className="flex justify-end gap-2 mt-4">
                   <button
                     type="submit"
-                    className="btn bg-purple-600 hover:bg-purple-700 text-white"
+                    className="btn gray hover:bg-gray-600 hover:text-gray-100 text-white border-0 hover:scale-102"
                   >
                     Save Changes
                   </button>
                   <button
                     type="button"
                     onClick={closeModal}
-                    className="btn bg-gray-300 hover:bg-gray-400"
+                    className="btn btn-ghost"
                   >
                     Cancel
                   </button>

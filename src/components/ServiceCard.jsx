@@ -55,7 +55,7 @@ const ServiceCard = ({ service }) => {
         {/* Details Button */}
         <Link
           to={`/service/${service._id}`}
-          className="btn w-full bg-linear-to-br primary text-white hover:opacity-90 border-0 mt-3"
+          className="btn w-full primary text-white hover:opacity-90 border-0 mt-3"
         >
           View Details
         </Link>

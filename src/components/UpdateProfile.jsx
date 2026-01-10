@@ -79,7 +79,7 @@ const UpdateProfileModal = () => {
               transition={{ duration: 0.25, ease: "easeOut" }}
               className="modal-box relative bg-base-100 text-base-content md:rounded-2xl rounded-xl shadow-2xl"
             >
-              <h3 className="font-bold text-2xl text-center text-purple-700 mb-4">
+              <h3 className="font-bold text-2xl text-center text-base-700 mb-4">
                 Update Profile
               </h3>
 
@@ -126,7 +126,7 @@ const UpdateProfileModal = () => {
                 <div className="flex justify-end gap-2 mt-4">
                   <button
                     type="submit"
-                    className="btn bg-green-600 hover:bg-green-700 text-white"
+                    className="btn gray hover:bg-gray-600 text-white"
                   >
                     Save Changes
                   </button>

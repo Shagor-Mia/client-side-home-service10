@@ -24,7 +24,7 @@ const ErrorPage = () => {
 
       <button
         onClick={handleNavigate}
-        className=" btn bg-gradient-to-br md:text-[16px] text-xs from-[#632ee3] to-[#9f62f2] text-white hover:opacity-90"
+        className=" btn primary text-white hover:opacity-90"
       >
         Go Back!
       </button>

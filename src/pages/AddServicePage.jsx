@@ -56,14 +56,14 @@ const AddServicePage = () => {
       {/* Back Link */}
       <Link
         to="/service"
-        className="md:text-2xl font-bold flex justify-center items-center md:mb-6 text-purple-700 hover:text-purple-900 transition-colors"
+        className="md:text-2xl font-bold flex justify-center items-center md:mb-6 text-green-700 hover:text-green-900 transition-colors"
       >
         <ArrowLeft className="mr-2" /> Back To Services
       </Link>
 
       {/* Heading */}
       <h1 className="md:text-5xl text-3xl font-bold text-center md:mb-10 mb-5 text-base-content">
-        Add a <span className="text-purple-600">Service</span>
+        Add a Service
       </h1>
 
       {/* Form */}
@@ -78,7 +78,7 @@ const AddServicePage = () => {
         <input
           type="text"
           name="serviceName"
-          className="input mb-4 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400 w-full"
+          className="input mb-4 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 w-full"
           placeholder="Service Name"
           required
         />
@@ -89,7 +89,7 @@ const AddServicePage = () => {
         </label>
         <select
           name="category"
-          className="input mb-4 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400 w-full"
+          className="input mb-4 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 w-full"
           required
         >
           <option value="">Select Category</option>
@@ -108,7 +108,7 @@ const AddServicePage = () => {
         <input
           type="number"
           name="price"
-          className="input mb-4 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400 w-full"
+          className="input mb-4 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 w-full"
           placeholder="Price"
           required
         />
@@ -119,7 +119,7 @@ const AddServicePage = () => {
         </label>
         <textarea
           name="description"
-          className="input mb-4 border border-gray-300 rounded-lg px-4 py-3 h-40 resize-none focus:outline-none focus:ring-2 focus:ring-purple-400 w-full"
+          className="input mb-4 border border-gray-300 rounded-lg px-4 py-3 h-40 resize-none focus:outline-none focus:ring-2 focus:ring-green-400 w-full"
           placeholder="Description"
           required
         />
@@ -131,7 +131,7 @@ const AddServicePage = () => {
         <input
           type="text"
           name="image"
-          className="input mb-6 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400 w-full"
+          className="input mb-6 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400 w-full"
           placeholder="Image URL"
           required
         />
@@ -139,7 +139,7 @@ const AddServicePage = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-linear-to-r from-purple-600 to-purple-400 text-white font-bold py-3 rounded-xl hover:opacity-90 transition-all shadow-lg"
+          className="w-full primary text-white font-bold py-3 rounded-xl hover:opacity-90 transition-all shadow-lg"
         >
           Add Service
         </button>

@@ -16,7 +16,7 @@ const ServiceHome = () => {
       try {
         setLoading(true);
         const res = await fetchAxios.get("/service/all");
-        setServices(res.data.slice(0, 6));
+        setServices(res.data.slice(0, 8));
       } catch (err) {
         console.error("Error fetching services:", err);
       } finally {
@@ -75,7 +75,7 @@ const ServiceHome = () => {
         initial={{ opacity: 0, y: -15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="md:text-5xl text-2xl font-bold text-center mb-8"
+        className="md:text-5xl text-2xl text-base-700 font-bold text-center mb-8"
       >
         Our Most Popular Services
       </motion.h2>
@@ -107,7 +107,7 @@ const ServiceHome = () => {
             className="overflow-y-auto md:overflow-y-visible h-[500px] md:h-auto pr-2 scrollbar-thin scrollbar-thumb-purple-400 scrollbar-track-transparent"
           >
             {/* Cards */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 px-2 md:px-0">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-2 md:px-0">
               {services.map((service) => (
                 <motion.div key={service._id} variants={cardVariants}>
                   <ServiceCard service={service} />
@@ -126,7 +126,7 @@ const ServiceHome = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="md:text-[16px] text-xs btn bg-linear-to-br from-[#554086] to-[#6cc3e6] text-white hover:opacity-90"
+                  className="md:text-[16px] text-xs btn gray hover:bg-gray-700 text-white hover:opacity-90"
                 >
                   Show All{" "}
                   <motion.span

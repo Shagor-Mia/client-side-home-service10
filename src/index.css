@@ -2,7 +2,7 @@
 
 @import "tailwindcss";
 @plugin "daisyui" {
-  themes: light --default, dark, cupcake, forest, cyberpunk;
+  themes: dark --default, light, cupcake, forest, cyberpunk;
 }
 
 @layer base {
@@ -21,6 +21,20 @@
 @layer utilities {
   .primary-text {
     background-image: linear-gradient(to bottom right, #2ee34c, #036950);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+@layer utilities {
+  .gray {
+    background: rgb(55, 65, 81);
+  }
+}
+
+@layer utilities {
+  .gray-text {
+    background: rgb(55, 65, 81);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

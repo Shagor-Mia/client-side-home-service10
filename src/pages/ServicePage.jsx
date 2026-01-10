@@ -147,7 +147,7 @@ const ServicePage = () => {
             exit="hidden"
             className="overflow-y-auto md:overflow-y-visible h-[500px] md:h-auto pr-2 scrollbar-thin scrollbar-thumb-purple-400 scrollbar-track-transparent"
           >
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 px-2 md:px-0">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-2 md:px-0">
               {services.map((service) => (
                 <motion.div key={service._id} variants={cardVariants}>
                   <ServiceCard service={service} />

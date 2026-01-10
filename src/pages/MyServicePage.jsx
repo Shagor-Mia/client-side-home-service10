@@ -13,14 +13,11 @@ const MyServices = () => {
   useEffect(() => {
     if (user?.email) {
       fetchAxios.get(`/service/my-services?email=${user.email}`).then((res) => {
-        console.log(res.data);
         setMyServices(res.data);
       });
     }
   }, [user, fetchAxios]);
 
-  // Update Service
-  // Update handler — modifies local state after modal update
   const handleServiceUpdated = (id, updatedData) => {
     setMyServices((prev) =>
       prev.map((service) =>
@@ -29,9 +26,7 @@ const MyServices = () => {
     );
   };
 
-  // Delete service (for provider)
   const handleDeleteService = (_id) => {
-    console.log(_id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to recover this service!",
@@ -66,17 +61,18 @@ const MyServices = () => {
   };
 
   if (loading || !myServices) {
-    <LoadingPage />;
+    return <LoadingPage />;
   }
+
   return (
     <div className="md:p-6 p-0">
-      <h3 className="md:text-4xl text-2xl font-bold md:mb-6  mb-3 text-center text-purple-700">
+      <h3 className="md:text-4xl text-2xl font-bold md:mb-6 mb-3 text-center text-base-content">
         My Services ({myServices.length})
       </h3>
 
-      <div className="overflow-x-auto md:rounded-2xl rounded-xl shadow-lg bg-white border border-gray-200">
+      <div className="overflow-x-auto md:rounded-2xl rounded-xl shadow-lg bg-base-100 border border-base-200">
         <table className="table w-full min-w-[650px]">
-          <thead className="bg-purple-100 text-gray-700 text-sm md:text-base">
+          <thead className="bg-purple-100 dark:bg-gray-800 text-base-content dark:text-white text-sm md:text-base">
             <tr>
               <th>#</th>
               <th>Service</th>
@@ -90,11 +86,10 @@ const MyServices = () => {
           <tbody>
             {myServices.length > 0 ? (
               myServices.map((service, index) => (
-                <tr
-                  key={service._id}
-                  className="hover:bg-purple-50 transition-all"
-                >
-                  <td className="font-semibold">{index + 1}</td>
+                <tr key={service._id} className=" transition-all">
+                  <td className="font-semibold text-base-content">
+                    {index + 1}
+                  </td>
 
                   {/* Image + Service Name */}
                   <td>
@@ -105,20 +100,20 @@ const MyServices = () => {
                         </div>
                       </div>
                       <div>
-                        <div className="font-semibold text-gray-800 md:text-sm text-xs">
+                        <div className="font-semibold text-base-content md:text-sm text-xs">
                           {service.serviceName}
                         </div>
-                        <div className="md:text-sm text-xs text-gray-500 truncate max-w-[180px]">
+                        <div className="md:text-sm text-xs text-base-content/70 truncate max-w-[180px]">
                           {service.description}
                         </div>
                       </div>
                     </div>
                   </td>
 
-                  <td className="text-gray-600 md:text-sm text-xs">
+                  <td className="text-base-content/70 md:text-sm text-xs">
                     {service.category}
                   </td>
-                  <td className="text-gray-700 font-semibold md:text-sm text-xs">
+                  <td className="text-base-content font-semibold md:text-sm text-xs">
                     ${service.price}
                   </td>
 
@@ -135,8 +130,7 @@ const MyServices = () => {
                     )}
                   </td>
 
-                  {/* Delete,update Button */}
-
+                  {/* Delete, Update Buttons */}
                   <td>
                     <div className="flex flex-col md:flex-row items-center gap-2 md:gap-0">
                       <button
@@ -155,7 +149,10 @@ const MyServices = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="6" className="text-center py-8 text-gray-500">
+                <td
+                  colSpan="6"
+                  className="text-center py-8 text-base-content/70"
+                >
                   No services found.
                 </td>
               </tr>
