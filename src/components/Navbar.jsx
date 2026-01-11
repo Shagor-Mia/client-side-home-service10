@@ -48,11 +48,7 @@ const Navbar = () => {
               Add Service
             </NavLink>
           </li>
-          <li className=" mx-2">
-            <NavLink className={linkActive} to={"/my-booking"}>
-              My Booking
-            </NavLink>
-          </li>
+
           <li className=" mx-2">
             <NavLink className={linkActive} to={"/profile"}>
               Profile
@@ -60,6 +56,11 @@ const Navbar = () => {
           </li>
         </>
       )}
+      <li className=" mx-2">
+        <NavLink className={linkActive} to={"/my-booking"}>
+          My Booking
+        </NavLink>
+      </li>
     </>
   );
   return (
@@ -143,7 +144,7 @@ const Navbar = () => {
         >
           <Theme />
           <motion.img
-            className="md:w-12 md:h-12 h-10 w-10 object-cover rounded-full"
+            className="md:w-12 hidden md:block md:h-12 h-10 w-10 object-cover rounded-full"
             src={
               user
                 ? user.photoURL

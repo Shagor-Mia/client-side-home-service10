@@ -69,8 +69,7 @@ const Hero = () => {
               exit={{ opacity: 0, y: -30 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              {titles[bgIndex].line1}
-              {titles[bgIndex].line2}
+              {titles[bgIndex].line1} {titles[bgIndex].line2}
             </motion.h1>
           </AnimatePresence>
           <div className="text-center my-5">

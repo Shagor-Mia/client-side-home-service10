@@ -58,7 +58,7 @@ const Footer = () => {
           <p>
             Phone:{" "}
             <a href="tel:+8801700000000" className="hover:text-[#068b6a]">
-              +880 1700 000 000
+              +880 1875318167
             </a>
           </p>
           <p>Address: Dhaka, Bangladesh</p>
